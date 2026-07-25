@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Motif C — Mexico Resort | Mexico Reunion Party</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌵</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#fff4e2; --card:#fffdf7; --ink:#2b1330; --ink-soft:#6b4f6e;
+    --marigold:#f6a51c; --hibiscus:#e8395f; --turquoise:#12a5a0; --agave:#3f7d4a; --purple:#6a3fa0;
+    --line: rgba(43,19,48,0.13); --shadow: 0 20px 42px -22px rgba(43,19,48,0.3); --radius:22px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --cream:#1c1024; --card:#241530; --ink:#fbeee0; --ink-soft:#d8b9d6;
+      --marigold:#ffb84d; --hibiscus:#ff5c85; --turquoise:#3fd6cf; --agave:#5fb26c; --purple:#a879e0;
+      --line: rgba(251,238,224,0.14); --shadow: 0 20px 46px -20px rgba(0,0,0,0.65); }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:'Nunito',sans-serif; line-height:1.65; }
+  h1,h2,h3{ font-family:'Baloo 2',cursive; text-wrap:balance; margin:0; }
+  .mono{ font-family:'Space Mono',monospace; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 1.5rem; }
+  .preview-bar{ position:sticky; top:0; z-index:10; background:var(--purple); color:#fff4e2; text-align:center; padding:0.6rem; font-family:'Space Mono',monospace; font-size:0.78rem; }
+  .preview-bar a{ color:var(--marigold); }
+
+  .bunting{ height:34px; display:flex; overflow:hidden; }
+  .bunting span{ flex:1 0 26px; height:34px; background:var(--hibiscus); clip-path:polygon(0 0,100% 0,50% 100%); margin:0 2px; }
+  .bunting span:nth-child(4n+1){ background:var(--turquoise); }
+  .bunting span:nth-child(4n+2){ background:var(--marigold); }
+  .bunting span:nth-child(4n+3){ background:var(--purple); }
+
+  .hero{
+    position:relative; min-height:88svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:2.5rem 1.5rem 4rem; color:#fff4e2; overflow:hidden;
+    background: linear-gradient(160deg, var(--hibiscus) 0%, #f0722f 42%, var(--marigold) 100%);
+  }
+  .sun{ width:5rem; height:5rem; margin-bottom:1.2rem; }
+  .hero h1{ font-size:clamp(2.4rem,7.2vw,4.8rem); text-shadow:0 6px 0 rgba(0,0,0,0.12); margin-bottom:0.9rem; }
+  .hero p.tag{ max-width:44ch; font-size:1.12rem; margin:0 auto 2rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.7rem; justify-content:center; margin-bottom:2.2rem; }
+  .chip{ background:rgba(0,0,0,0.16); border:2px solid rgba(255,255,255,0.5); padding:0.55rem 1.05rem; border-radius:999px; font-family:'Space Mono',monospace; font-size:0.82rem; }
+  .cta-row{ display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:center; }
+  .btn{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:1rem; padding:0.85rem 1.7rem; border-radius:999px; border:3px solid transparent; cursor:pointer; text-decoration:none; }
+  .btn-solid{ background:#fff4e2; color:var(--hibiscus); box-shadow:var(--shadow); }
+  .btn-ghost{ background:transparent; color:#fff4e2; border-color:rgba(255,244,226,0.8); }
+
+  section{ padding:4.6rem 0; }
+  .kicker{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.16em; font-size:0.72rem; color:var(--hibiscus); display:block; margin-bottom:0.6rem; }
+  .section-head h2{ font-size:clamp(1.7rem,4vw,2.4rem); }
+  .section-head p{ color:var(--ink-soft); margin-top:0.6rem; max-width:60ch; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:2rem; position:relative; overflow:hidden; }
+  .tile-bg::before{ content:""; position:absolute; inset:0; opacity:0.06; pointer-events:none;
+    background-image: repeating-linear-gradient(45deg, var(--turquoise) 0 6px, transparent 6px 24px), repeating-linear-gradient(-45deg, var(--hibiscus) 0 6px, transparent 6px 24px); }
+
+  .serape{ height:10px; border-radius:999px; background: repeating-linear-gradient(90deg, var(--hibiscus) 0 14px, var(--marigold) 14px 28px, var(--turquoise) 28px 42px, var(--purple) 42px 56px); margin:2.4rem 0; }
+
+  .rsvp-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1.5rem; margin-top:1.6rem; }
+  @media (max-width:720px){ .rsvp-grid{ grid-template-columns:1fr; } }
+  form{ display:flex; flex-direction:column; gap:0.9rem; position:relative; z-index:1; }
+  label{ font-family:'Space Mono',monospace; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); }
+  input,textarea{ font-family:'Nunito',sans-serif; padding:0.7rem 0.9rem; border-radius:12px; border:1.5px solid var(--line); background:var(--cream); color:var(--ink); }
+  .field{ display:flex; flex-direction:column; gap:0.35rem; }
+  .submit-btn{ align-self:flex-start; background:var(--hibiscus); color:#fff4e2; border:none; border-radius:999px; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:0.95rem; padding:0.8rem 1.5rem; cursor:pointer; }
+  .tally{ background:linear-gradient(160deg,var(--turquoise),#0a7d79); color:#fff4e2; border-radius:var(--radius); padding:1.8rem; display:flex; flex-direction:column; gap:0.5rem; justify-content:center; box-shadow:var(--shadow); }
+  .tally .num{ font-family:'Baloo 2',sans-serif; font-size:2.9rem; }
+  .tally .label{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.12em; font-size:0.7rem; opacity:0.9; }
+
+  .details-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.6rem; }
+  @media (max-width:760px){ .details-grid{ grid-template-columns:1fr; } }
+  @media (min-width:761px) and (max-width:980px){ .details-grid{ grid-template-columns:repeat(2,1fr); } }
+  .detail-card{ padding:1.5rem; }
+  .detail-card .k{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.12em; font-size:0.68rem; color:var(--hibiscus); display:block; margin-bottom:0.5rem; }
+  .detail-card .v{ font-size:1.05rem; font-weight:700; }
+  .cactus-icon{ width:2.1rem; color:var(--agave); margin-bottom:0.5rem; }
+
+  .menu-board{ background:linear-gradient(155deg,#0a7d79,var(--turquoise)); color:#fff4e2; border-radius:var(--radius); padding:2.2rem; box-shadow:var(--shadow); margin-top:1.6rem; }
+  .menu-item{ display:flex; justify-content:space-between; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(255,244,226,0.2); }
+  .menu-item:last-child{ border-bottom:none; }
+  .menu-item .name{ font-family:'Baloo 2',sans-serif; font-size:1.05rem; }
+  .menu-item .desc{ font-size:0.92rem; color:#eafcf9; margin-top:0.25rem; max-width:46ch; }
+  .badge{ font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; background:var(--marigold); color:#2b1330; padding:0.2rem 0.55rem; border-radius:999px; margin-left:0.5rem; }
+
+  .track-list{ margin-top:1.4rem; border-top:1px solid var(--line); position:relative; z-index:1; }
+  .track-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:0.8rem 0; border-bottom:1px solid var(--line); }
+  .track-row .artist{ font-weight:700; } .track-row .title{ color:var(--ink-soft); }
+  .vote-btn{ width:2.1rem;height:2.1rem;border-radius:999px; border:1.5px solid var(--line); background:var(--cream); cursor:pointer; }
+  .votes{ display:flex; align-items:center; gap:0.5rem; }
+  .note{ font-family:'Space Mono',monospace; font-size:0.8rem; color:var(--ink-soft); margin-top:1rem; text-align:center; }
+
+  .comment{ padding:1.1rem 1.3rem; background:var(--cream); border-radius:14px; border:1px solid var(--line); margin-bottom:0.9rem; }
+  .comment .head{ display:flex; justify-content:space-between; margin-bottom:0.3rem; }
+  .comment .name{ font-weight:800; } .comment .when{ font-family:'Space Mono',monospace; font-size:0.72rem; color:var(--ink-soft); }
+
+  footer{ text-align:center; padding:3.5rem 1.5rem; font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--ink-soft); }
+  footer .big{ font-family:'Baloo 2',sans-serif; font-size:1.35rem; color:var(--ink); display:block; margin-bottom:0.6rem; }
+
+  .toast{ position:fixed; bottom:1.4rem; left:50%; transform:translateX(-50%) translateY(120%); background:var(--purple); color:#fff4e2; border-radius:999px;
+    padding:0.7rem 1.2rem; font-family:'Space Mono',monospace; font-size:0.78rem; transition:transform 0.3s ease; z-index:20; }
+  .toast.show{ transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="preview-bar">PREVIEW · MOTIF C — MEXICO RESORT &nbsp;·&nbsp; <a href="../compare/">← back to compare</a></div>
+<div class="bunting" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <svg class="sun" viewBox="0 0 100 100" fill="#fff4e2" aria-hidden="true">
+    <circle cx="50" cy="50" r="20"/>
+    <g stroke="#fff4e2" stroke-width="6" stroke-linecap="round">
+      <line x1="50" y1="6" x2="50" y2="18"/><line x1="50" y1="82" x2="50" y2="94"/>
+      <line x1="6" y1="50" x2="18" y2="50"/><line x1="82" y1="50" x2="94" y2="50"/>
+      <line x1="18" y1="18" x2="26" y2="26"/><line x1="74" y1="74" x2="82" y2="82"/>
+      <line x1="82" y1="18" x2="74" y2="26"/><line x1="26" y1="74" x2="18" y2="82"/>
+    </g>
+  </svg>
+  <h1>Mexico Reunion Party</h1>
+  <p class="tag">The tans may have faded, but the memories (and maybe the tequila) live on. Come relive the laughs, swap stories, and catch up with everyone.</p>
+  <div class="chips">
+    <span class="chip">📅 Sat, Aug 1, 2026</span>
+    <span class="chip">🕑 2:00 PM – ?</span>
+    <span class="chip">📍 1028 Bull Crescent, Kelowna</span>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-solid" href="#rsvp">RSVP Now</a>
+    <a class="btn btn-ghost" href="#playlist">Add a Song</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="rsvp">
+    <div class="section-head"><span class="kicker">Uno · Head Count</span><h2>Save Your Seat by the Pool</h2><p>Please RSVP so we know how much tequila to buy… purely for planning purposes, of course.</p></div>
+    <div class="rsvp-grid">
+      <div class="card tile-bg">
+        <form onsubmit="return preview(event)">
+          <div class="field"><label>Your name</label><input type="text" placeholder="Your name" /></div>
+          <div class="field"><label>Total in your group</label><input type="number" value="1" min="1" /></div>
+          <button class="submit-btn" type="submit">Count Me In</button>
+        </form>
+      </div>
+      <div class="tally">
+        <span class="label">Fiesta Headcount</span>
+        <span class="num mono">38</span>
+        <span class="label" style="text-transform:none;letter-spacing:0;opacity:0.92;">people confirmed so far</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="serape" role="presentation"></div></div>
+
+  <section id="details">
+    <div class="section-head"><span class="kicker">Dos · The Details</span><h2>Where &amp; When</h2></div>
+    <div class="details-grid">
+      <div class="card detail-card"><span class="k">Date</span><span class="v">Saturday, August 1, 2026</span></div>
+      <div class="card detail-card"><span class="k">Time</span><span class="v">2:00 PM – ?</span></div>
+      <div class="card detail-card"><span class="k">Location</span><span class="v">1028 Bull Crescent, Kelowna</span></div>
+      <div class="card detail-card">
+        <svg class="cactus-icon" viewBox="0 0 60 80" fill="currentColor" aria-hidden="true"><path d="M26,80 L26,30 C26,20 34,20 34,30 L34,80 Z M26,45 C16,45 14,38 14,32 L14,26 C14,22 20,22 20,26 L20,34 C20,38 22,40 26,40 Z M34,55 C44,55 46,48 46,42 L46,36 C46,32 40,32 40,36 L40,44 C40,48 38,50 34,50 Z"/></svg>
+        <span class="k">Dress Code</span><span class="v" style="font-size:0.95rem;">Bright colors. Aloha shirts welcome.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="drinks">
+    <div class="section-head"><span class="kicker">Tres · Cantina</span><h2>The Bar</h2></div>
+    <div class="menu-board">
+      <div class="menu-item"><div><div class="name">Margaritas <span class="badge">House Specialty</span></div><div class="desc">Lime, or Passionfruit — pick your side of the pool.</div></div></div>
+      <div class="menu-item"><div><div class="name">Corona</div><div class="desc">Lime wedge included.</div></div></div>
+      <div class="menu-item"><div><div class="name">TZ's Red Ferrari Sangria</div><div class="desc">Deep red, big fruit, bigger pitcher.</div></div></div>
+    </div>
+  </section>
+
+  <section id="playlist">
+    <div class="section-head"><span class="kicker">Cuatro · The Soundtrack</span><h2>Pool Party Playlist</h2><p>151 tracks on deck. Sample below — the full list (and voting) goes live with the site.</p></div>
+    <div class="card">
+      <div class="track-list">
+        <div class="track-row"><div><span class="artist">Gloria Estefan</span> — <span class="title">Conga</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">14</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">Los Del Rio</span> — <span class="title">Macarena</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">12</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">ABBA</span> — <span class="title">Dancing Queen</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">10</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">Ricky Martin</span> — <span class="title">Livin' la Vida Loca</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">9</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">LMFAO</span> — <span class="title">Party Rock Anthem</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">7</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      </div>
+      <p class="note">+146 more once we go live</p>
+    </div>
+  </section>
+
+  <section id="guestbook">
+    <div class="section-head"><span class="kicker">Cinco · Guestbook</span><h2>Leave a Note</h2></div>
+    <div class="comment"><div class="head"><span class="name">Michelle</span><span class="when mono">Jul 20</span></div>Can't wait — someone bring the photo album from the boat day.</div>
+    <div class="comment"><div class="head"><span class="name">Craig</span><span class="when mono">Jul 21</span></div>I still have the sombrero. It's happening.</div>
+  </section>
+</main>
+
+<footer>
+  <span class="big">🌵 Nos vemos en la piscina 🌵</span>
+  Mexico Reunion Party · August 1, 2026 · Kelowna, BC
+</footer>
+
+<div class="toast" id="toast">This is a preview — the real thing goes live once a motif's picked 👀</div>
+<script>
+function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); return false; }
+</script>
+</body>
+</html>

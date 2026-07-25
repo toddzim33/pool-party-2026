@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pick a Motif — Mexico Reunion Party</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗳️</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#faf6ef; --ink:#241a12; --ink-soft:#6b5c48; --line:rgba(36,26,18,0.14); --card:#fff; }
+  @media (prefers-color-scheme: dark){ :root{ --bg:#181410; --ink:#f3ead9; --ink-soft:#c2b39a; --line:rgba(243,234,217,0.16); --card:#221c15; } }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Fraunces',serif; line-height:1.6; padding:3.5rem 1.5rem 5rem; }
+  .wrap{ max-width:960px; margin:0 auto; }
+  .kicker{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.2em; font-size:0.75rem; color:#c8442f; }
+  h1{ font-size:clamp(1.9rem,5vw,2.8rem); margin:0.6rem 0 0.8rem; text-wrap:balance; }
+  p.lead{ max-width:62ch; color:var(--ink-soft); font-size:1.08rem; }
+  .grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.3rem; margin-top:2.6rem; }
+  @media (max-width:720px){ .grid{ grid-template-columns:1fr; } }
+  .motif-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; text-decoration:none; color:var(--ink); display:flex; flex-direction:column; transition:transform 0.15s ease, box-shadow 0.15s ease; }
+  .motif-card:hover{ transform:translateY(-3px); box-shadow:0 16px 30px -18px rgba(0,0,0,0.35); }
+  .swatch{ height:120px; display:flex; }
+  .swatch span{ flex:1; }
+  .body{ padding:1.4rem 1.5rem 1.6rem; }
+  .tag{ font-family:'Space Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-soft); }
+  .body h2{ font-family:'Fraunces',serif; font-weight:700; font-size:1.35rem; margin:0.4rem 0 0.5rem; }
+  .body p{ margin:0; color:var(--ink-soft); font-size:0.96rem; }
+  .go{ font-family:'Space Mono',monospace; font-size:0.78rem; margin-top:0.9rem; display:inline-block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="kicker">Mexico Reunion Party · Motif Vote</span>
+  <h1>Pick the Look, Michelle</h1>
+  <p class="lead">Four directions for the same party site — content's the same in each, only the visual language changes. Click through, then let Todd know which one to build for real (RSVP, playlist voting, guestbook — all live once one's picked).</p>
+
+  <div class="grid">
+    <a class="motif-card" href="../motif-a-magnum/">
+      <div class="swatch"><span style="background:#0b1c26;"></span><span style="background:#c81e33;"></span><span style="background:#c9a24b;"></span><span style="background:#f3ead9;"></span></div>
+      <div class="body">
+        <span class="tag">Motif A</span>
+        <h2>Magnum Heavy</h2>
+        <p>Full detective-show homage — Ferrari red, brass, deep night navy, formal "case file" framing. The boldest, moodiest option.</p>
+        <span class="go">View this motif →</span>
+      </div>
+    </a>
+
+    <a class="motif-card" href="../motif-b-resort/">
+      <div class="swatch"><span style="background:#ff6a45;"></span><span style="background:#e0203a;"></span><span style="background:#0e6161;"></span><span style="background:#f0b23e;"></span></div>
+      <div class="body">
+        <span class="tag">Motif B</span>
+        <h2>Magnum Resort</h2>
+        <p>The middle ground — sunset gradient, palms, and a cruising Ferrari silhouette, but warm and tropical, not moody.</p>
+        <span class="go">View this motif →</span>
+      </div>
+    </a>
+
+    <a class="motif-card" href="../motif-c-mexico/">
+      <div class="swatch"><span style="background:#e8395f;"></span><span style="background:#f6a51c;"></span><span style="background:#12a5a0;"></span><span style="background:#6a3fa0;"></span></div>
+      <div class="body">
+        <span class="tag">Motif C</span>
+        <h2>Mexico Resort</h2>
+        <p>Fiesta-forward — papel picado, marigold and hibiscus, serape stripes. Least Magnum, most "actually about the trip."</p>
+        <span class="go">View this motif →</span>
+      </div>
+    </a>
+
+    <a class="motif-card" href="../motif-d-costume/">
+      <div class="swatch"><span style="background:#150a1e;"></span><span style="background:#ff3d81;"></span><span style="background:#ff7a29;"></span><span style="background:#d4af5a;"></span></div>
+      <div class="body">
+        <span class="tag">Motif D</span>
+        <h2>Full Costume Party</h2>
+        <p>Everything, turned up — VHS box-art neon, a "COSTUME REQUIRED" stamp, and an actual costume kit checklist.</p>
+        <span class="go">View this motif →</span>
+      </div>
+    </a>
+  </div>
+</div>
+</body>
+</html>

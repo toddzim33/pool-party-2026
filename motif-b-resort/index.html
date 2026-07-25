@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Motif B — Magnum Resort | Mexico Reunion Party</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sand:#f7ecd8; --sand-card:#fffaf0; --ink:#241407; --ink-soft:#5a4327;
+    --coral:#ff6a45; --coral-deep:#e0491f; --ferrari:#e0203a; --lagoon:#0e6161; --lagoon-deep:#0a4a4a; --gold:#f0b23e;
+    --line: rgba(36,20,7,0.13); --shadow: 0 20px 44px -22px rgba(36,20,7,0.32); --radius:20px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --sand:#0c2323; --sand-card:#123434; --ink:#f7ecd8; --ink-soft:#cdbd97;
+      --coral:#ff8a63; --coral-deep:#ff6a45; --ferrari:#ff5470; --lagoon:#1a8a8a; --lagoon-deep:#0e6161; --gold:#f4c76a;
+      --line: rgba(247,236,216,0.14); --shadow: 0 20px 46px -20px rgba(0,0,0,0.6); }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--sand); color:var(--ink); font-family:'Fraunces',Georgia,serif; line-height:1.65; }
+  h1,h2,h3{ font-family:'Bungee',sans-serif; text-wrap:balance; margin:0; }
+  .mono{ font-family:'Space Mono',monospace; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 1.5rem; }
+  .preview-bar{ position:sticky; top:0; z-index:10; background:var(--lagoon-deep); color:#fff8ec; text-align:center; padding:0.6rem; font-family:'Space Mono',monospace; font-size:0.78rem; }
+  .preview-bar a{ color:var(--gold); }
+
+  .hero{
+    position:relative; min-height:92svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:5rem 1.5rem; color:#fff8ec; overflow:hidden;
+    background: radial-gradient(120% 55% at 50% 0%, #ffd27a 0%, transparent 55%),
+      linear-gradient(180deg,#ff8a4a 0%, var(--coral-deep) 26%, var(--ferrari) 50%, var(--lagoon) 76%, var(--lagoon-deep) 100%);
+  }
+  .eyebrow{ font-family:'Space Mono',monospace; letter-spacing:0.26em; text-transform:uppercase; font-size:0.72rem; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.35); padding:0.5rem 1rem; border-radius:999px; margin-bottom:1.4rem; }
+  .hero h1{ font-size:clamp(2.5rem,7.4vw,5rem); text-shadow:0 6px 0 rgba(0,0,0,0.18),0 18px 40px rgba(0,0,0,0.35); margin-bottom:0.9rem; }
+  .hero p.tag{ max-width:44ch; font-size:1.1rem; color:#fff2df; margin:0 auto 2rem; }
+  .cruise{ width:min(80%,380px); margin:0.4rem auto 1.6rem; opacity:0.95; }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.7rem; justify-content:center; margin-bottom:2.2rem; }
+  .chip{ display:flex; align-items:center; gap:0.4rem; background:rgba(12,10,6,0.26); border:1px solid rgba(255,255,255,0.32); padding:0.55rem 1.05rem; border-radius:999px; font-family:'Space Mono',monospace; font-size:0.84rem; }
+  .cta-row{ display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:center; }
+  .btn{ font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; font-size:0.84rem; padding:0.9rem 1.6rem; border-radius:999px; border:2px solid transparent; cursor:pointer; text-decoration:none; }
+  .btn-solid{ background:#fff8ec; color:var(--coral-deep); box-shadow:var(--shadow); }
+  .btn-ghost{ background:transparent; color:#fff8ec; border-color:rgba(255,248,236,0.7); }
+
+  section{ padding:4.6rem 0; }
+  .kicker{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.2em; font-size:0.72rem; color:var(--coral-deep); display:block; margin-bottom:0.6rem; }
+  .section-head h2{ font-size:clamp(1.7rem,4vw,2.5rem); }
+  .section-head p{ color:var(--ink-soft); margin-top:0.6rem; max-width:60ch; }
+  .card{ background:var(--sand-card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:2rem; }
+
+  .rsvp-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1.5rem; margin-top:1.6rem; }
+  @media (max-width:720px){ .rsvp-grid{ grid-template-columns:1fr; } }
+  form{ display:flex; flex-direction:column; gap:0.9rem; }
+  label{ font-family:'Space Mono',monospace; font-size:0.74rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-soft); }
+  input,textarea{ font-family:'Fraunces',serif; padding:0.7rem 0.9rem; border-radius:10px; border:1.5px solid var(--line); background:var(--sand); color:var(--ink); }
+  .field{ display:flex; flex-direction:column; gap:0.35rem; }
+  .submit-btn{ align-self:flex-start; background:var(--coral-deep); color:#fff8ec; border:none; border-radius:999px; font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; font-size:0.82rem; padding:0.8rem 1.5rem; cursor:pointer; }
+  .tally{ background:linear-gradient(160deg,var(--lagoon),var(--lagoon-deep)); color:#fff8ec; border-radius:var(--radius); padding:1.8rem; display:flex; flex-direction:column; gap:0.5rem; justify-content:center; box-shadow:var(--shadow); }
+  .tally .num{ font-family:'Bungee',sans-serif; font-size:2.9rem; }
+  .tally .label{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.14em; font-size:0.7rem; opacity:0.9; }
+
+  .details-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.6rem; }
+  @media (max-width:760px){ .details-grid{ grid-template-columns:1fr; } }
+  @media (min-width:761px) and (max-width:980px){ .details-grid{ grid-template-columns:repeat(2,1fr); } }
+  .detail-card{ padding:1.5rem; }
+  .detail-card .k{ font-family:'Space Mono',monospace; text-transform:uppercase; letter-spacing:0.14em; font-size:0.7rem; color:var(--coral-deep); display:block; margin-bottom:0.5rem; }
+  .detail-card .v{ font-size:1.05rem; font-weight:600; }
+  .stache-icon{ width:2.3rem; color:var(--gold); margin-bottom:0.5rem; }
+
+  .menu-board{ background:linear-gradient(155deg,var(--lagoon-deep),var(--lagoon)); color:#fff8ec; border-radius:var(--radius); padding:2.2rem; box-shadow:var(--shadow); margin-top:1.6rem; }
+  .menu-item{ display:flex; justify-content:space-between; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(255,248,236,0.16); }
+  .menu-item:last-child{ border-bottom:none; }
+  .menu-item .name{ font-family:'Bungee',sans-serif; font-size:1.02rem; }
+  .menu-item .desc{ font-size:0.9rem; color:#e8f2ef; margin-top:0.25rem; max-width:46ch; }
+  .badge{ font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; background:var(--gold); color:#241407; padding:0.2rem 0.55rem; border-radius:999px; margin-left:0.5rem; }
+
+  .track-list{ margin-top:1.4rem; border-top:1px solid var(--line); }
+  .track-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:0.8rem 0; border-bottom:1px solid var(--line); }
+  .track-row .artist{ font-weight:600; } .track-row .title{ color:var(--ink-soft); }
+  .vote-btn{ width:2.1rem;height:2.1rem;border-radius:999px; border:1.5px solid var(--line); background:var(--sand); cursor:pointer; }
+  .votes{ display:flex; align-items:center; gap:0.5rem; }
+  .note{ font-family:'Space Mono',monospace; font-size:0.8rem; color:var(--ink-soft); margin-top:1rem; text-align:center; }
+
+  .comment{ padding:1.1rem 1.3rem; background:var(--sand); border-radius:12px; border:1px solid var(--line); margin-bottom:0.9rem; }
+  .comment .head{ display:flex; justify-content:space-between; margin-bottom:0.3rem; }
+  .comment .name{ font-weight:700; } .comment .when{ font-family:'Space Mono',monospace; font-size:0.72rem; color:var(--ink-soft); }
+
+  footer{ text-align:center; padding:3.5rem 1.5rem; font-family:'Space Mono',monospace; font-size:0.82rem; color:var(--ink-soft); }
+  footer .big{ font-family:'Bungee',sans-serif; font-size:1.3rem; color:var(--ink); display:block; margin-bottom:0.6rem; }
+
+  .toast{ position:fixed; bottom:1.4rem; left:50%; transform:translateX(-50%) translateY(120%); background:var(--lagoon-deep); color:#fff8ec; border-radius:999px;
+    padding:0.7rem 1.2rem; font-family:'Space Mono',monospace; font-size:0.78rem; transition:transform 0.3s ease; z-index:20; }
+  .toast.show{ transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="preview-bar">PREVIEW · MOTIF B — MAGNUM RESORT &nbsp;·&nbsp; <a href="../compare/">← back to compare</a></div>
+
+<header class="hero">
+  <span class="eyebrow">You're Invited</span>
+  <div style="font-size:1.3rem;" aria-hidden="true">🌴🇲🇽🕶️</div>
+  <h1>Mexico Reunion Party</h1>
+  <svg class="cruise" viewBox="0 0 400 90" fill="none" stroke="#fff8ec" stroke-width="2" opacity="0.85" aria-hidden="true">
+    <path d="M10,66 Q20,42 60,40 L100,40 Q130,22 180,22 Q240,22 260,40 L360,42 Q385,44 390,60 L390,68 L10,68 Z" />
+    <circle cx="80" cy="70" r="11" fill="#fff8ec" stroke="none"/>
+    <circle cx="320" cy="70" r="11" fill="#fff8ec" stroke="none"/>
+  </svg>
+  <p class="tag">The tans may have faded, but the memories (and maybe the tequila) live on. Come relive the laughs, swap stories, and catch up with everyone.</p>
+  <div class="chips">
+    <span class="chip">📅 Sat, Aug 1, 2026</span>
+    <span class="chip">🕑 2:00 PM – ?</span>
+    <span class="chip">📍 1028 Bull Crescent, Kelowna</span>
+  </div>
+  <div class="cta-row">
+    <a class="btn btn-solid" href="#rsvp">RSVP Now</a>
+    <a class="btn btn-ghost" href="#playlist">Add a Song</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="rsvp">
+    <div class="section-head"><span class="kicker">01 · Head Count</span><h2>Save Your Seat by the Pool</h2><p>Please RSVP so we know how much tequila to buy… purely for planning purposes, of course.</p></div>
+    <div class="rsvp-grid">
+      <div class="card">
+        <form onsubmit="return preview(event)">
+          <div class="field"><label>Your name</label><input type="text" placeholder="Your name" /></div>
+          <div class="field"><label>Total in your group</label><input type="number" value="1" min="1" /></div>
+          <button class="submit-btn" type="submit">Count Me In</button>
+        </form>
+      </div>
+      <div class="tally">
+        <span class="label">Guest Manifest</span>
+        <span class="num mono">38</span>
+        <span class="label" style="text-transform:none;letter-spacing:0;opacity:0.92;">people confirmed so far</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="details">
+    <div class="section-head"><span class="kicker">02 · The Details</span><h2>Where &amp; When</h2></div>
+    <div class="details-grid">
+      <div class="card detail-card"><span class="k">Date</span><span class="v">Saturday, August 1, 2026</span></div>
+      <div class="card detail-card"><span class="k">Time</span><span class="v">2:00 PM – ?</span></div>
+      <div class="card detail-card"><span class="k">Location</span><span class="v">1028 Bull Crescent, Kelowna</span></div>
+      <div class="card detail-card">
+        <svg class="stache-icon" viewBox="0 0 200 60" fill="currentColor" aria-hidden="true"><path d="M100,26 C88,6 62,2 44,16 C30,27 27,40 10,38 C25,45 46,43 55,30 C60,39 51,49 34,52 C55,54 78,44 84,29 C89,19 96,19 100,26 Z"/><path d="M100,26 C112,6 138,2 156,16 C170,27 173,40 190,38 C175,45 154,43 145,30 C140,39 149,49 166,52 C145,54 122,44 116,29 C111,19 104,19 100,26 Z"/></svg>
+        <span class="k">Dress Code</span><span class="v" style="font-size:0.95rem;">Aloha shirts. Mustaches encouraged.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="drinks">
+    <div class="section-head"><span class="kicker">03 · Cantina</span><h2>The Bar</h2></div>
+    <div class="menu-board">
+      <div class="menu-item"><div><div class="name">Margaritas <span class="badge">House Specialty</span></div><div class="desc">Lime, or Passionfruit — pick your side of the pool.</div></div></div>
+      <div class="menu-item"><div><div class="name">Corona</div><div class="desc">Lime wedge included.</div></div></div>
+      <div class="menu-item"><div><div class="name">TZ's Red Ferrari Sangria</div><div class="desc">Deep red, top down, no permission needed.</div></div></div>
+    </div>
+  </section>
+
+  <section id="playlist">
+    <div class="section-head"><span class="kicker">04 · The Soundtrack</span><h2>Pool Party Playlist</h2><p>151 tracks on deck. Sample below — the full list (and voting) goes live with the site.</p></div>
+    <div class="card">
+      <div class="track-list">
+        <div class="track-row"><div><span class="artist">AC/DC</span> — <span class="title">Highway to Hell</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">14</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">ABBA</span> — <span class="title">Dancing Queen</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">12</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">Gloria Estefan</span> — <span class="title">Conga</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">10</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">Journey</span> — <span class="title">Don't Stop Believin'</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">9</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+        <div class="track-row"><div><span class="artist">LMFAO</span> — <span class="title">Party Rock Anthem</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">7</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      </div>
+      <p class="note">+146 more once we go live</p>
+    </div>
+  </section>
+
+  <section id="guestbook">
+    <div class="section-head"><span class="kicker">05 · Guestbook</span><h2>Leave a Note</h2></div>
+    <div class="comment"><div class="head"><span class="name">Michelle</span><span class="when mono">Jul 20</span></div>Can't wait — someone bring the photo album from the boat day.</div>
+    <div class="comment"><div class="head"><span class="name">Craig</span><span class="when mono">Jul 21</span></div>I still have the sombrero. It's happening.</div>
+  </section>
+</main>
+
+<footer>
+  <span class="big">🌴 See you at the pool 🌴</span>
+  Mexico Reunion Party · August 1, 2026 · Kelowna, BC
+</footer>
+
+<div class="toast" id="toast">This is a preview — the real thing goes live once a motif's picked 👀</div>
+<script>
+function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); return false; }
+</script>
+</body>
+</html>
