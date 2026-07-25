@@ -62,6 +62,13 @@
   .note{ font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--ink-soft); margin-top:0.8rem; text-align:center; }
 
   .gallery-placeholder{ border:2px dashed var(--line); border-radius:var(--radius); padding:2.4rem 1.5rem; text-align:center; color:var(--ink-soft); font-family:'Space Mono',monospace; font-size:0.85rem; }
+  .photo-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:0.5rem; margin-top:1rem; }
+  .photo-thumb{ display:block; width:100%; aspect-ratio:1; border:none; border-radius:12px; background-size:cover; background-position:center; cursor:pointer; padding:0; box-shadow:var(--shadow); transition:transform .15s ease; }
+  .photo-thumb:hover{ transform:scale(1.04); outline:2px solid var(--coral); }
+  .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,0.88); display:flex; align-items:center; justify-content:center; padding:2rem; opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:50; }
+  .lightbox.show{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-width:100%; max-height:100%; border-radius:10px; box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
+
 
   footer{ text-align:center; padding:3rem 1.5rem; font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--ink-soft); }
   footer .big{ font-family:'Sacramento',cursive; font-size:1.8rem; color:var(--ink); display:block; margin-bottom:0.4rem; }
@@ -121,7 +128,39 @@
 
   <section id="photos">
     <div class="section-head"><span class="kicker">The Original Trip</span><h2 style="font-size:1.8rem;">Photo Wall</h2></div>
-    <div class="gallery-placeholder">Photos from the March 2026 trip go here</div>
+    <div class="photo-grid">
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-01.jpg')" onclick="openLightbox('../photos/full/photo-01.jpg')" aria-label="Trip photo 1"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-02.jpg')" onclick="openLightbox('../photos/full/photo-02.jpg')" aria-label="Trip photo 2"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-03.jpg')" onclick="openLightbox('../photos/full/photo-03.jpg')" aria-label="Trip photo 3"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-04.jpg')" onclick="openLightbox('../photos/full/photo-04.jpg')" aria-label="Trip photo 4"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-05.jpg')" onclick="openLightbox('../photos/full/photo-05.jpg')" aria-label="Trip photo 5"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-06.jpg')" onclick="openLightbox('../photos/full/photo-06.jpg')" aria-label="Trip photo 6"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Trip photo 7"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-08.jpg')" onclick="openLightbox('../photos/full/photo-08.jpg')" aria-label="Trip photo 8"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-09.jpg')" onclick="openLightbox('../photos/full/photo-09.jpg')" aria-label="Trip photo 9"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Trip photo 10"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-11.jpg')" onclick="openLightbox('../photos/full/photo-11.jpg')" aria-label="Trip photo 11"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-12.jpg')" onclick="openLightbox('../photos/full/photo-12.jpg')" aria-label="Trip photo 12"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-13.jpg')" onclick="openLightbox('../photos/full/photo-13.jpg')" aria-label="Trip photo 13"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-14.jpg')" onclick="openLightbox('../photos/full/photo-14.jpg')" aria-label="Trip photo 14"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-15.jpg')" onclick="openLightbox('../photos/full/photo-15.jpg')" aria-label="Trip photo 15"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-16.jpg')" onclick="openLightbox('../photos/full/photo-16.jpg')" aria-label="Trip photo 16"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-17.jpg')" onclick="openLightbox('../photos/full/photo-17.jpg')" aria-label="Trip photo 17"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-18.jpg')" onclick="openLightbox('../photos/full/photo-18.jpg')" aria-label="Trip photo 18"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-19.jpg')" onclick="openLightbox('../photos/full/photo-19.jpg')" aria-label="Trip photo 19"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-20.jpg')" onclick="openLightbox('../photos/full/photo-20.jpg')" aria-label="Trip photo 20"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-21.jpg')" onclick="openLightbox('../photos/full/photo-21.jpg')" aria-label="Trip photo 21"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Trip photo 22"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-23.jpg')" onclick="openLightbox('../photos/full/photo-23.jpg')" aria-label="Trip photo 23"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-24.jpg')" onclick="openLightbox('../photos/full/photo-24.jpg')" aria-label="Trip photo 24"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-25.jpg')" onclick="openLightbox('../photos/full/photo-25.jpg')" aria-label="Trip photo 25"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-26.jpg')" onclick="openLightbox('../photos/full/photo-26.jpg')" aria-label="Trip photo 26"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-27.jpg')" onclick="openLightbox('../photos/full/photo-27.jpg')" aria-label="Trip photo 27"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-28.jpg')" onclick="openLightbox('../photos/full/photo-28.jpg')" aria-label="Trip photo 28"></button>
+    </div>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <img id="lightboxImg" src="" alt="Mexico trip photo, March 2026" />
+    </div>
   </section>
 </main>
 
@@ -132,6 +171,8 @@
 
 <div class="toast" id="toast">Preview only — goes live once a motif's picked 👀</div>
 <script>
+function openLightbox(src){ const img=document.getElementById('lightboxImg'); img.src=src; document.getElementById('lightbox').classList.add('show'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
 function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); return false; }
 </script>
 </body>
