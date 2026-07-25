@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Option 3 — Soundbath | Mexico Reunion Party</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,500&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --mist:#eef2ee; --card:#ffffff; --ink:#1e2b27; --ink-soft:#587169;
+    --aqua:#66c2b8; --aqua-deep:#2f8c81; --sand:#e7d7b8; --terracotta:#c9835a; --lavender:#c9b8e8;
+    --line: rgba(30,43,39,0.12); --shadow: 0 20px 44px -24px rgba(30,43,39,0.28); --radius:20px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --mist:#141c1a; --card:#1c2622; --ink:#eef2ee; --ink-soft:#a9c4bc;
+      --aqua:#7fd6cb; --aqua-deep:#4fb0a4; --sand:#d9c398; --terracotta:#dd9c72; --lavender:#dcc9f5;
+      --line: rgba(238,242,238,0.13); --shadow: 0 20px 46px -20px rgba(0,0,0,0.6); }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--mist); color:var(--ink); font-family:'Sora',system-ui,sans-serif; line-height:1.65; font-weight:400; }
+  h1,h2,h3{ font-family:'Cormorant',serif; font-weight:500; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  .wrap{ max-width:800px; margin:0 auto; padding:0 1.5rem; }
+  .preview-bar{ position:sticky; top:0; z-index:10; background:var(--aqua-deep); color:#f2fbf9; text-align:center; padding:0.6rem; font-family:'IBM Plex Mono',monospace; font-size:0.76rem; }
+  .preview-bar a{ color:var(--lavender); font-weight:600; }
+
+  .hero{
+    position:relative; padding:5.2rem 1.5rem 3.6rem; text-align:center; color:#fff; overflow:hidden;
+    background: linear-gradient(175deg, rgba(47,140,129,0.55) 0%, rgba(201,184,232,0.4) 55%, rgba(30,43,39,0.6) 100%), url('../photos/full/photo-04.jpg') center 42%/cover;
+  }
+  .hero .sub{ font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.34em; text-transform:uppercase; opacity:0.92; margin-bottom:1.1rem; display:block; }
+  .hero h1{ font-size:clamp(2.4rem,7.4vw,4rem); font-weight:500; text-shadow:0 4px 18px rgba(0,0,0,0.3); margin-bottom:0.9rem; letter-spacing:0.01em; }
+  .hero p.tag{ max-width:44ch; margin:0 auto 1.7rem; font-size:1.08rem; text-shadow:0 2px 10px rgba(0,0,0,0.35); font-family:'Cormorant',serif; font-style:italic; font-size:1.3rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.55rem; justify-content:center; }
+  .chip{ background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.45); padding:0.5rem 1rem; border-radius:999px; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.02em; }
+  .cta-row{ display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:center; padding:1.6rem 1.5rem; background:var(--aqua-deep); }
+  .btn{ font-family:'Sora',sans-serif; font-weight:600; font-size:0.92rem; padding:0.72rem 1.5rem; border-radius:999px; border:1.5px solid transparent; cursor:pointer; text-decoration:none; }
+  .btn-solid{ background:#fff; color:var(--aqua-deep); }
+  .btn-ghost{ background:transparent; color:#f2fbf9; border-color:rgba(242,251,249,0.55); }
+
+  .recap{ padding:2.6rem 1.5rem 0.4rem; text-align:center; }
+  .recap p{ max-width:52ch; margin:0 auto; color:var(--ink-soft); font-family:'Cormorant',serif; font-style:italic; font-size:1.35rem; line-height:1.55; }
+
+  section{ padding:2.8rem 0; }
+  .kicker{ font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.22em; font-size:0.66rem; color:var(--aqua-deep); display:block; margin-bottom:0.5rem; }
+  .section-head h2{ font-size:1.9rem; font-weight:500; }
+  .section-head p{ color:var(--ink-soft); margin-top:0.5rem; max-width:60ch; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.9rem; }
+
+  .zen-note{ display:flex; align-items:center; gap:0.9rem; margin-top:1.2rem; padding:1.1rem 1.4rem; border-radius:var(--radius); background:linear-gradient(120deg, rgba(102,194,184,0.14), rgba(201,184,232,0.16)); border:1px solid var(--line); }
+  .zen-note span.icon{ font-size:1.4rem; }
+  .zen-note p{ margin:0; color:var(--ink-soft); font-size:0.92rem; }
+
+  .coming-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1.2rem; margin-top:1.4rem; }
+  @media (max-width:640px){ .coming-grid{ grid-template-columns:1fr; } }
+  form{ display:flex; gap:0.7rem; flex-wrap:wrap; }
+  input[type=text]{ font-family:'Sora',sans-serif; flex:1; min-width:140px; padding:0.7rem 0.9rem; border-radius:12px; border:1.5px solid var(--line); background:var(--mist); color:var(--ink); }
+  .yn{ display:flex; gap:0.4rem; }
+  .yn button{ font-family:'Sora',sans-serif; font-weight:600; border:1.5px solid var(--line); background:var(--mist); color:var(--ink); border-radius:12px; padding:0.7rem 1rem; cursor:pointer; }
+  .yn button.yes:hover{ background:var(--aqua); color:#0f2320; border-color:var(--aqua); }
+  .tally{ background:linear-gradient(160deg,var(--aqua),var(--lavender)); color:#1c2622; border-radius:var(--radius); padding:1.5rem; display:flex; flex-direction:column; gap:0.4rem; justify-content:center; box-shadow:var(--shadow); }
+  .tally .num{ font-family:'Cormorant',serif; font-weight:600; font-size:2.8rem; }
+  .tally .label{ font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.12em; font-size:0.64rem; opacity:0.85; }
+  .whos-list{ margin-top:1rem; display:flex; flex-wrap:wrap; gap:0.5rem; }
+  .whos-list span{ font-family:'IBM Plex Mono',monospace; font-size:0.76rem; background:var(--mist); border:1px solid var(--line); border-radius:999px; padding:0.35rem 0.8rem; }
+
+  .add-song{ display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+  .add-song input{ font-family:'Sora',sans-serif; flex:1; min-width:120px; padding:0.65rem 0.85rem; border-radius:12px; border:1.5px solid var(--line); background:var(--mist); color:var(--ink); }
+  .add-song button{ font-family:'Sora',sans-serif; font-weight:600; background:var(--aqua-deep); color:#f2fbf9; border:none; border-radius:12px; padding:0.65rem 1.3rem; cursor:pointer; }
+  .track-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:0.7rem 0; border-bottom:1px solid var(--line); }
+  .track-row .artist{ font-weight:600; } .track-row .title{ color:var(--ink-soft); }
+  .votes{ display:flex; align-items:center; gap:0.4rem; }
+  .vote-btn{ width:1.9rem;height:1.9rem;border-radius:999px; border:1.5px solid var(--line); background:var(--mist); cursor:pointer; }
+  .note{ font-family:'IBM Plex Mono',monospace; font-size:0.76rem; color:var(--ink-soft); margin-top:0.8rem; text-align:center; }
+
+  .photo-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:0.5rem; margin-top:1rem; }
+  .photo-thumb{ display:block; width:100%; aspect-ratio:1; border:none; border-radius:14px; background-size:cover; background-position:center; cursor:pointer; padding:0; box-shadow:var(--shadow); transition:transform .18s ease; }
+  .photo-thumb:hover{ transform:scale(1.03); outline:2px solid var(--aqua); }
+  .lightbox{ position:fixed; inset:0; background:rgba(15,20,18,0.9); display:flex; align-items:center; justify-content:center; padding:2rem; opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:50; }
+  .lightbox.show{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-width:100%; max-height:100%; border-radius:12px; box-shadow:0 30px 60px -20px rgba(0,0,0,0.55); }
+
+  footer{ text-align:center; padding:3.2rem 1.5rem; font-family:'IBM Plex Mono',monospace; font-size:0.76rem; color:var(--ink-soft); }
+  footer .big{ font-family:'Cormorant',serif; font-style:italic; font-weight:500; font-size:1.7rem; color:var(--ink); display:block; margin-bottom:0.5rem; }
+
+  .toast{ position:fixed; bottom:1.4rem; left:50%; transform:translateX(-50%) translateY(120%); background:var(--aqua-deep); color:#f2fbf9; border-radius:999px;
+    padding:0.7rem 1.2rem; font-family:'IBM Plex Mono',monospace; font-size:0.76rem; transition:transform 0.3s ease; z-index:20; }
+  .toast.show{ transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="preview-bar">PREVIEW · OPTION 3 — SOUNDBATH &nbsp;·&nbsp; <a href="../compare/">← back to compare</a></div>
+
+<header class="hero">
+  <span class="sub">Breathe In · Breathe Out</span>
+  <h1>Mexico Reunion Party</h1>
+  <p class="tag">Same water, same peace, new pool.</p>
+  <div class="chips">
+    <span class="chip">📅 Sat, Aug 1, 2026</span>
+    <span class="chip">🕑 2:00 PM – ?</span>
+    <span class="chip">📍 1028 Bull Crescent, Kelowna</span>
+    <span class="chip">🍹 Passionfruit Margs · Corona · Red Ferrari Sangria</span>
+  </div>
+</header>
+<div class="cta-row">
+  <a class="btn btn-solid" href="#coming">I'm In</a>
+  <a class="btn btn-ghost" href="#songs">Add a Song</a>
+</div>
+
+<div class="recap">
+  <p>We went to Mexico for Solenn's 40th and somehow ended up at a soundbath, floating through a Watsu session, and watching a lot of very quiet, very good sunrises. Let's bring a little of that stillness home — poolside, Kelowna style.</p>
+</div>
+
+<main class="wrap">
+  <section id="coming">
+    <div class="section-head"><span class="kicker">Who's Coming</span><h2>Add Your Name</h2><p>No pressure, no formal RSVP — just let us know you're floating our way.</p></div>
+    <div class="coming-grid">
+      <div class="card">
+        <form onsubmit="return preview(event)">
+          <input type="text" placeholder="Your name" />
+          <div class="yn">
+            <button type="submit" class="yes" onclick="return preview(event)">I'm in</button>
+            <button type="button" onclick="return preview(event)">Maybe</button>
+          </div>
+        </form>
+        <div class="whos-list">
+          <span>Michelle</span><span>Craig</span><span>Wayne</span><span>Brad</span><span>+34 more</span>
+        </div>
+      </div>
+      <div class="tally">
+        <span class="label">Confirmed</span>
+        <span class="num mono">38</span>
+        <span class="label" style="text-transform:none;letter-spacing:0;opacity:0.85;">and counting</span>
+      </div>
+    </div>
+    <div class="zen-note">
+      <span class="icon">🎐</span>
+      <p>No gongs required this time, but feel free to bring your own zen. The pool's plenty quiet before 4pm.</p>
+    </div>
+  </section>
+
+  <section id="songs">
+    <div class="section-head"><span class="kicker">The Soundtrack</span><h2>Song List & Suggestions</h2><p>151 on deck. Add yours, vote the rest up or down.</p></div>
+    <div class="card">
+      <form class="add-song" onsubmit="return preview(event)">
+        <input type="text" placeholder="Artist" />
+        <input type="text" placeholder="Track" />
+        <button type="submit">Add</button>
+      </form>
+      <div class="track-row"><div><span class="artist">Fleetwood Mac</span> — <span class="title">Dreams</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">14</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      <div class="track-row"><div><span class="artist">Corinne Bailey Rae</span> — <span class="title">Put Your Records On</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">11</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      <div class="track-row"><div><span class="artist">Sade</span> — <span class="title">Smooth Operator</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">9</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      <p class="note">+148 more once we go live</p>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="section-head"><span class="kicker">The Original Trip</span><h2>Photo Wall</h2><p>March 18–25, 2026 — click any shot to enlarge.</p></div>
+    <div class="photo-grid">
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-01.jpg')" onclick="openLightbox('../photos/full/photo-01.jpg')" aria-label="Trip photo 1"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-02.jpg')" onclick="openLightbox('../photos/full/photo-02.jpg')" aria-label="Trip photo 2"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-03.jpg')" onclick="openLightbox('../photos/full/photo-03.jpg')" aria-label="Trip photo 3"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-04.jpg')" onclick="openLightbox('../photos/full/photo-04.jpg')" aria-label="Trip photo 4"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-05.jpg')" onclick="openLightbox('../photos/full/photo-05.jpg')" aria-label="Trip photo 5"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-06.jpg')" onclick="openLightbox('../photos/full/photo-06.jpg')" aria-label="Trip photo 6"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Trip photo 7"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-08.jpg')" onclick="openLightbox('../photos/full/photo-08.jpg')" aria-label="Trip photo 8"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-09.jpg')" onclick="openLightbox('../photos/full/photo-09.jpg')" aria-label="Trip photo 9"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Trip photo 10"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-11.jpg')" onclick="openLightbox('../photos/full/photo-11.jpg')" aria-label="Trip photo 11"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-12.jpg')" onclick="openLightbox('../photos/full/photo-12.jpg')" aria-label="Trip photo 12"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-13.jpg')" onclick="openLightbox('../photos/full/photo-13.jpg')" aria-label="Trip photo 13"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-14.jpg')" onclick="openLightbox('../photos/full/photo-14.jpg')" aria-label="Trip photo 14"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-15.jpg')" onclick="openLightbox('../photos/full/photo-15.jpg')" aria-label="Trip photo 15"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-16.jpg')" onclick="openLightbox('../photos/full/photo-16.jpg')" aria-label="Trip photo 16"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-17.jpg')" onclick="openLightbox('../photos/full/photo-17.jpg')" aria-label="Trip photo 17"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-18.jpg')" onclick="openLightbox('../photos/full/photo-18.jpg')" aria-label="Trip photo 18"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-19.jpg')" onclick="openLightbox('../photos/full/photo-19.jpg')" aria-label="Trip photo 19"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-20.jpg')" onclick="openLightbox('../photos/full/photo-20.jpg')" aria-label="Trip photo 20"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-21.jpg')" onclick="openLightbox('../photos/full/photo-21.jpg')" aria-label="Trip photo 21"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Trip photo 22"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-23.jpg')" onclick="openLightbox('../photos/full/photo-23.jpg')" aria-label="Trip photo 23"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-24.jpg')" onclick="openLightbox('../photos/full/photo-24.jpg')" aria-label="Trip photo 24"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-25.jpg')" onclick="openLightbox('../photos/full/photo-25.jpg')" aria-label="Trip photo 25"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-26.jpg')" onclick="openLightbox('../photos/full/photo-26.jpg')" aria-label="Trip photo 26"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-27.jpg')" onclick="openLightbox('../photos/full/photo-27.jpg')" aria-label="Trip photo 27"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-28.jpg')" onclick="openLightbox('../photos/full/photo-28.jpg')" aria-label="Trip photo 28"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="Trip photo 29"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Trip photo 30"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-31.jpg')" onclick="openLightbox('../photos/full/photo-31.jpg')" aria-label="Trip photo 31"></button>
+    </div>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <img id="lightboxImg" src="" alt="Mexico trip photo, March 2026" />
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="big">Breathe in. Margarita out.</span>
+  Mexico Reunion Party · August 1, 2026 · Kelowna, BC
+</footer>
+
+<div class="toast" id="toast">Preview only — goes live once an option's picked 👀</div>
+<script>
+function openLightbox(src){ const img=document.getElementById('lightboxImg'); img.src=src; document.getElementById('lightbox').classList.add('show'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
+function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); return false; }
+</script>
+</body>
+</html>
