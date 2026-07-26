@@ -97,9 +97,6 @@
   .fame-item .thumb:hover{ transform:scale(1.08) rotate(0deg); position:relative; z-index:2; }
   .fame-item .cap{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); display:block; margin-bottom:0.35rem; }
 
-  .add-song{ display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1.2rem; }
-  .add-song input{ font-family:'Baloo 2',sans-serif; flex:1; min-width:120px; padding:0.65rem 0.85rem; border-radius:10px; border:1.5px solid var(--line); background:var(--cream); color:var(--ink); }
-  .add-song button{ font-family:'Lilita One',sans-serif; font-size:0.9rem; background:var(--hotpink-deep); color:#fff; border:none; border-radius:10px; padding:0.65rem 1.4rem; cursor:pointer; }
   .track-list{ max-height:22rem; overflow-y:auto; border-top:1px solid var(--line); margin-top:0.4rem; }
   .track-row{ padding:0.65rem 0.2rem; border-bottom:1px solid var(--line); }
   .track-row .artist{ font-weight:700; } .track-row .title{ color:var(--ink-soft); }
@@ -118,9 +115,7 @@
   footer{ text-align:center; padding:3rem 1.5rem; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--sun); background:var(--ink); }
   footer .big{ font-family:'Permanent Marker',cursive; color:var(--sun); font-size:1.7rem; display:block; margin-bottom:0.5rem; transform:rotate(-1deg); }
 
-  .toast{ position:fixed; bottom:1.4rem; left:50%; transform:translateX(-50%) translateY(120%); background:var(--ink); color:var(--sun); border-radius:999px;
-    padding:0.7rem 1.2rem; font-family:'JetBrains Mono',monospace; font-size:0.78rem; transition:transform 0.3s ease; z-index:20; }
-  .toast.show{ transform:translateX(-50%) translateY(0); }
+
 </style>
 </head>
 <body>
@@ -174,7 +169,7 @@
       <span class="marker">🛗 Party Game: Stuck in the Elevator</span>
       <p>Teams get 60 seconds to "escape" a taped-off doorway using only what's in their goodie bag. Ask a leopard-day survivor for tips — they've done this for real.</p>
     </div>
-    <div class="section-head" style="margin-top:1.8rem;"><span class="kicker">Hall of Fame</span><h2>Theme Days, Ranked</h2><p>Leopard. French. Muumuu. Fuchsia. Glitter. Vote for the one that needs to come back.</p></div>
+    <div class="section-head" style="margin-top:1.8rem;"><span class="kicker">Hall of Fame</span><h2>Rank the Themes!</h2><p>Leopard. French. Muumuu. Fuchsia. Glitter. Vote for the one that needs to come back.</p></div>
     <div class="fame-grid" id="fameGrid">
       <div class="fame-item" data-votes="14">
         <div class="thumb-pair">
@@ -220,13 +215,8 @@
   </section>
 
   <section id="songs">
-    <div class="section-head"><span class="kicker">The Soundtrack</span><h2>Song List & Suggestions</h2><p>151 on deck — scroll the list, add yours at the top.</p></div>
+    <div class="section-head"><span class="kicker">The Soundtrack</span><h2>Song List & Suggestions</h2><p>151 on deck — scroll the list below. Got one to add? Text Todd, he'll drop it in.</p></div>
     <div class="card">
-      <form class="add-song" onsubmit="return preview(event)">
-        <input type="text" placeholder="Artist" />
-        <input type="text" placeholder="Track" />
-        <button type="submit">Add</button>
-      </form>
       <div class="track-list">
         <div class="track-row"><span class="artist">LMFAO</span> — <span class="title">Party Rock Anthem</span></div>
         <div class="track-row"><span class="artist">Los Del Rio</span> — <span class="title">Macarena</span></div>
@@ -395,11 +385,9 @@
   Mexico Reunion Party · August 1, 2026 · Kelowna, BC
 </footer>
 
-<div class="toast" id="toast">Preview only — goes live once we lock the direction 👀</div>
 <script>
 function openLightbox(src){ const img=document.getElementById('lightboxImg'); img.src=src; document.getElementById('lightbox').classList.add('show'); }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
-function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); return false; }
 function rankVote(btn, delta){
   const item = btn.closest('.fame-item');
   const v = Math.max(0, parseInt(item.dataset.votes, 10) + delta);
