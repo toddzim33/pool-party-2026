@@ -89,10 +89,12 @@
   .fame-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:0.7rem; margin-top:1.2rem; }
   @media (max-width:640px){ .fame-grid{ grid-template-columns:repeat(2,1fr); } }
   .fame-item{ text-align:center; }
-  .fame-item .thumb{ width:100%; aspect-ratio:1; border-radius:12px; background-size:cover; background-position:center; box-shadow:var(--shadow); cursor:pointer; border:3px solid #fff; padding:0; margin-bottom:0.4rem; transition:transform .15s ease; }
-  .fame-item:nth-child(odd) .thumb{ transform:rotate(-3deg); }
-  .fame-item:nth-child(even) .thumb{ transform:rotate(3deg); }
-  .fame-item .thumb:hover{ transform:scale(1.06) rotate(0deg); }
+  .fame-item .thumb{ width:100%; aspect-ratio:1; border-radius:12px; background-size:cover; background-position:center; box-shadow:var(--shadow); cursor:pointer; border:3px solid #fff; padding:0; margin-bottom:0; transition:transform .15s ease; }
+  .fame-item .thumb-pair{ display:flex; gap:0.35rem; margin-bottom:0.4rem; }
+  .fame-item .thumb-pair .thumb{ flex:1; min-width:0; }
+  .fame-item .thumb-pair .thumb:nth-child(1){ transform:rotate(-4deg); }
+  .fame-item .thumb-pair .thumb:nth-child(2){ transform:rotate(4deg); }
+  .fame-item .thumb:hover{ transform:scale(1.08) rotate(0deg); position:relative; z-index:2; }
   .fame-item .cap{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); display:block; margin-bottom:0.35rem; }
 
   .add-song{ display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1.2rem; }
@@ -159,6 +161,7 @@
 <div class="cta-row">
   <a class="btn btn-solid" href="#songs">🎶 Add a Song</a>
   <a class="btn btn-solid" style="background:var(--turquoise-deep);" href="#photos">📸 See the Photos</a>
+  <a class="btn btn-solid" style="background:var(--lime); color:var(--ink);" href="#fame">🏆 Rank the Theme Days</a>
 </div>
 
 <div class="recap">
@@ -168,36 +171,51 @@
 <main class="wrap">
   <section id="fame">
     <div class="section-head"><span class="kicker">Hall of Fame</span><h2>Theme Days, Ranked</h2><p>Leopard. French. Muumuu. Fuchsia. Glitter. Vote for the one that needs to come back.</p></div>
+    <div class="game-aside">
+      <span class="marker">🛗 Party Game: Stuck in the Elevator</span>
+      <p>Teams get 60 seconds to "escape" a taped-off doorway using only what's in their goodie bag. Ask a leopard-day survivor for tips — they've done this for real.</p>
+    </div>
     <div class="fame-grid" id="fameGrid">
       <div class="fame-item" data-votes="14">
-        <button class="thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Leopard day"></button>
+        <div class="thumb-pair">
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Leopard day, photo 1"></button>
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-08.jpg')" onclick="openLightbox('../photos/full/photo-08.jpg')" aria-label="Leopard day, photo 2"></button>
+        </div>
         <span class="cap">Leopard Day</span>
         <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Leopard Day">▲</button><span class="mono vcount">14</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Leopard Day">▼</button></div>
       </div>
       <div class="fame-item" data-votes="9">
-        <button class="thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="French day"></button>
+        <div class="thumb-pair">
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="French day, photo 1"></button>
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-77.jpg')" onclick="openLightbox('../photos/full/photo-77.jpg')" aria-label="French day, photo 2"></button>
+        </div>
         <span class="cap">French Day</span>
         <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote French Day">▲</button><span class="mono vcount">9</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote French Day">▼</button></div>
       </div>
       <div class="fame-item" data-votes="12">
-        <button class="thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Muumuu day"></button>
+        <div class="thumb-pair">
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Muumuu day, photo 1"></button>
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-23.jpg')" onclick="openLightbox('../photos/full/photo-23.jpg')" aria-label="Muumuu day, photo 2"></button>
+        </div>
         <span class="cap">Muumuu Day</span>
         <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Muumuu Day">▲</button><span class="mono vcount">12</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Muumuu Day">▼</button></div>
       </div>
       <div class="fame-item" data-votes="8">
-        <button class="thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Fuchsia day"></button>
+        <div class="thumb-pair">
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Fuchsia day, photo 1"></button>
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-67.jpg')" onclick="openLightbox('../photos/full/photo-67.jpg')" aria-label="Fuchsia day, photo 2"></button>
+        </div>
         <span class="cap">Fuchsia Day</span>
         <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Fuchsia Day">▲</button><span class="mono vcount">8</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Fuchsia Day">▼</button></div>
       </div>
       <div class="fame-item" data-votes="11">
-        <button class="thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Glitter night"></button>
+        <div class="thumb-pair">
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Glitter night, photo 1"></button>
+          <button class="thumb" style="background-image:url('../photos/thumb/photo-97.jpg')" onclick="openLightbox('../photos/full/photo-97.jpg')" aria-label="Glitter night, photo 2"></button>
+        </div>
         <span class="cap">Glitter Night</span>
         <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Glitter Night">▲</button><span class="mono vcount">11</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Glitter Night">▼</button></div>
       </div>
-    </div>
-    <div class="game-aside">
-      <span class="marker">🛗 Party Game: Stuck in the Elevator</span>
-      <p>Teams get 60 seconds to "escape" a taped-off doorway using only what's in their goodie bag. Ask a leopard-day survivor for tips — they've done this for real.</p>
     </div>
   </section>
 
@@ -299,6 +317,72 @@
       <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="Trip photo 29"></button>
       <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Trip photo 30"></button>
       <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-31.jpg')" onclick="openLightbox('../photos/full/photo-31.jpg')" aria-label="Trip photo 31"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-32.jpg')" onclick="openLightbox('../photos/full/photo-32.jpg')" aria-label="Trip photo 32"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-33.jpg')" onclick="openLightbox('../photos/full/photo-33.jpg')" aria-label="Trip photo 33"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-34.jpg')" onclick="openLightbox('../photos/full/photo-34.jpg')" aria-label="Trip photo 34"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-35.jpg')" onclick="openLightbox('../photos/full/photo-35.jpg')" aria-label="Trip photo 35"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-36.jpg')" onclick="openLightbox('../photos/full/photo-36.jpg')" aria-label="Trip photo 36"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-37.jpg')" onclick="openLightbox('../photos/full/photo-37.jpg')" aria-label="Trip photo 37"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-38.jpg')" onclick="openLightbox('../photos/full/photo-38.jpg')" aria-label="Trip photo 38"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-39.jpg')" onclick="openLightbox('../photos/full/photo-39.jpg')" aria-label="Trip photo 39"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-40.jpg')" onclick="openLightbox('../photos/full/photo-40.jpg')" aria-label="Trip photo 40"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-41.jpg')" onclick="openLightbox('../photos/full/photo-41.jpg')" aria-label="Trip photo 41"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-42.jpg')" onclick="openLightbox('../photos/full/photo-42.jpg')" aria-label="Trip photo 42"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-43.jpg')" onclick="openLightbox('../photos/full/photo-43.jpg')" aria-label="Trip photo 43"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-44.jpg')" onclick="openLightbox('../photos/full/photo-44.jpg')" aria-label="Trip photo 44"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-45.jpg')" onclick="openLightbox('../photos/full/photo-45.jpg')" aria-label="Trip photo 45"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-46.jpg')" onclick="openLightbox('../photos/full/photo-46.jpg')" aria-label="Trip photo 46"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-47.jpg')" onclick="openLightbox('../photos/full/photo-47.jpg')" aria-label="Trip photo 47"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-48.jpg')" onclick="openLightbox('../photos/full/photo-48.jpg')" aria-label="Trip photo 48"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-49.jpg')" onclick="openLightbox('../photos/full/photo-49.jpg')" aria-label="Trip photo 49"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-50.jpg')" onclick="openLightbox('../photos/full/photo-50.jpg')" aria-label="Trip photo 50"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-51.jpg')" onclick="openLightbox('../photos/full/photo-51.jpg')" aria-label="Trip photo 51"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-52.jpg')" onclick="openLightbox('../photos/full/photo-52.jpg')" aria-label="Trip photo 52"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-53.jpg')" onclick="openLightbox('../photos/full/photo-53.jpg')" aria-label="Trip photo 53"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-54.jpg')" onclick="openLightbox('../photos/full/photo-54.jpg')" aria-label="Trip photo 54"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-55.jpg')" onclick="openLightbox('../photos/full/photo-55.jpg')" aria-label="Trip photo 55"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-56.jpg')" onclick="openLightbox('../photos/full/photo-56.jpg')" aria-label="Trip photo 56"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-57.jpg')" onclick="openLightbox('../photos/full/photo-57.jpg')" aria-label="Trip photo 57"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-58.jpg')" onclick="openLightbox('../photos/full/photo-58.jpg')" aria-label="Trip photo 58"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-59.jpg')" onclick="openLightbox('../photos/full/photo-59.jpg')" aria-label="Trip photo 59"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-60.jpg')" onclick="openLightbox('../photos/full/photo-60.jpg')" aria-label="Trip photo 60"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-61.jpg')" onclick="openLightbox('../photos/full/photo-61.jpg')" aria-label="Trip photo 61"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-62.jpg')" onclick="openLightbox('../photos/full/photo-62.jpg')" aria-label="Trip photo 62"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-63.jpg')" onclick="openLightbox('../photos/full/photo-63.jpg')" aria-label="Trip photo 63"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-64.jpg')" onclick="openLightbox('../photos/full/photo-64.jpg')" aria-label="Trip photo 64"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-65.jpg')" onclick="openLightbox('../photos/full/photo-65.jpg')" aria-label="Trip photo 65"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-66.jpg')" onclick="openLightbox('../photos/full/photo-66.jpg')" aria-label="Trip photo 66"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-67.jpg')" onclick="openLightbox('../photos/full/photo-67.jpg')" aria-label="Trip photo 67"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-68.jpg')" onclick="openLightbox('../photos/full/photo-68.jpg')" aria-label="Trip photo 68"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-69.jpg')" onclick="openLightbox('../photos/full/photo-69.jpg')" aria-label="Trip photo 69"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-70.jpg')" onclick="openLightbox('../photos/full/photo-70.jpg')" aria-label="Trip photo 70"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-71.jpg')" onclick="openLightbox('../photos/full/photo-71.jpg')" aria-label="Trip photo 71"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-72.jpg')" onclick="openLightbox('../photos/full/photo-72.jpg')" aria-label="Trip photo 72"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-73.jpg')" onclick="openLightbox('../photos/full/photo-73.jpg')" aria-label="Trip photo 73"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-74.jpg')" onclick="openLightbox('../photos/full/photo-74.jpg')" aria-label="Trip photo 74"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-75.jpg')" onclick="openLightbox('../photos/full/photo-75.jpg')" aria-label="Trip photo 75"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-76.jpg')" onclick="openLightbox('../photos/full/photo-76.jpg')" aria-label="Trip photo 76"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-77.jpg')" onclick="openLightbox('../photos/full/photo-77.jpg')" aria-label="Trip photo 77"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-78.jpg')" onclick="openLightbox('../photos/full/photo-78.jpg')" aria-label="Trip photo 78"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-79.jpg')" onclick="openLightbox('../photos/full/photo-79.jpg')" aria-label="Trip photo 79"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-80.jpg')" onclick="openLightbox('../photos/full/photo-80.jpg')" aria-label="Trip photo 80"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-81.jpg')" onclick="openLightbox('../photos/full/photo-81.jpg')" aria-label="Trip photo 81"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-82.jpg')" onclick="openLightbox('../photos/full/photo-82.jpg')" aria-label="Trip photo 82"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-83.jpg')" onclick="openLightbox('../photos/full/photo-83.jpg')" aria-label="Trip photo 83"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-84.jpg')" onclick="openLightbox('../photos/full/photo-84.jpg')" aria-label="Trip photo 84"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-85.jpg')" onclick="openLightbox('../photos/full/photo-85.jpg')" aria-label="Trip photo 85"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-86.jpg')" onclick="openLightbox('../photos/full/photo-86.jpg')" aria-label="Trip photo 86"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-87.jpg')" onclick="openLightbox('../photos/full/photo-87.jpg')" aria-label="Trip photo 87"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-88.jpg')" onclick="openLightbox('../photos/full/photo-88.jpg')" aria-label="Trip photo 88"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-89.jpg')" onclick="openLightbox('../photos/full/photo-89.jpg')" aria-label="Trip photo 89"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-90.jpg')" onclick="openLightbox('../photos/full/photo-90.jpg')" aria-label="Trip photo 90"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-91.jpg')" onclick="openLightbox('../photos/full/photo-91.jpg')" aria-label="Trip photo 91"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-92.jpg')" onclick="openLightbox('../photos/full/photo-92.jpg')" aria-label="Trip photo 92"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-93.jpg')" onclick="openLightbox('../photos/full/photo-93.jpg')" aria-label="Trip photo 93"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-94.jpg')" onclick="openLightbox('../photos/full/photo-94.jpg')" aria-label="Trip photo 94"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-95.jpg')" onclick="openLightbox('../photos/full/photo-95.jpg')" aria-label="Trip photo 95"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-96.jpg')" onclick="openLightbox('../photos/full/photo-96.jpg')" aria-label="Trip photo 96"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-97.jpg')" onclick="openLightbox('../photos/full/photo-97.jpg')" aria-label="Trip photo 97"></button>
     </div>
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
       <img id="lightboxImg" src="" alt="Mexico trip photo, March 2026" />
