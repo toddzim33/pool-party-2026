@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mexico Reunion Party — Fiesta Remix</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Baloo+2:wght@400;600;700;800&family=Permanent+Marker&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --hotpink:#ff2f8f; --hotpink-deep:#c40e68; --orange:#ff7a1f; --turquoise:#00d4d0; --turquoise-deep:#00918e;
+    --sun:#ffd23f; --lime:#a4e02c; --ink:#1c1310; --ink-soft:#5c4a3a; --cream:#fff6e5; --card:#fffaf0;
+    --line: rgba(28,19,16,0.14); --shadow: 0 20px 44px -20px rgba(28,19,16,0.4); --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ink:#fff6e5; --ink-soft:#e3cba0; --cream:#1a1310; --card:#251a17;
+      --hotpink:#ff5fa8; --hotpink-deep:#ff2f8f; --turquoise:#3fe8e4; --turquoise-deep:#1fc0bc;
+      --line: rgba(255,246,229,0.16); --shadow: 0 20px 46px -18px rgba(0,0,0,0.7); }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:'Baloo 2',system-ui,sans-serif; line-height:1.6; overflow-x:hidden; }
+  h1,h2,h3{ font-family:'Lilita One',system-ui,sans-serif; text-wrap:balance; margin:0; }
+  .mono{ font-family:'JetBrains Mono',monospace; }
+  .marker{ font-family:'Permanent Marker',cursive; }
+  .wrap{ max-width:840px; margin:0 auto; padding:0 1.5rem; }
+  .preview-bar{ position:sticky; top:0; z-index:30; background:var(--ink); color:var(--sun); text-align:center; padding:0.6rem; font-family:'JetBrains Mono',monospace; font-size:0.78rem; }
+  .preview-bar a{ color:var(--hotpink); font-weight:600; }
+
+  .stripe{ height:12px; background:repeating-linear-gradient(-45deg, var(--hotpink) 0 18px, var(--orange) 18px 36px, var(--sun) 36px 54px, var(--turquoise) 54px 72px, var(--lime) 72px 90px); }
+
+  /* ---- collage hero ---- */
+  .collage-wrap{ position:relative; }
+  .collage-grid{ display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:1fr; height:78vh; min-height:460px; gap:5px; padding:5px; background:var(--ink); }
+  @media (max-width:720px){ .collage-grid{ grid-template-columns:repeat(3,1fr); height:64vh; } }
+  .ctile{ position:relative; overflow:hidden; border-radius:12px; }
+  .ctile:nth-child(odd){ transform:rotate(-1.4deg) scale(1.05); }
+  .ctile:nth-child(even){ transform:rotate(1.4deg) scale(1.05); }
+  .cimg{ position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; animation:tileFade 9s ease-in-out infinite; }
+  .cimg:nth-child(1){ animation-delay:0s; }
+  .cimg:nth-child(2){ animation-delay:3s; }
+  .cimg:nth-child(3){ animation-delay:6s; }
+  .ctile:nth-child(3n) .cimg{ animation-duration:11s; }
+  .ctile:nth-child(4n) .cimg{ animation-duration:7.5s; }
+  .ctile:nth-child(5n) .cimg{ animation-duration:9.8s; }
+  @keyframes tileFade{
+    0%{ opacity:0; transform:scale(1.1); }
+    8%{ opacity:1; transform:scale(1.14); }
+    30%{ opacity:1; transform:scale(1.18); }
+    40%{ opacity:0; transform:scale(1.2); }
+    100%{ opacity:0; transform:scale(1.1); }
+  }
+  @media (prefers-reduced-motion: reduce){ .cimg{ animation:none; opacity:1; } }
+
+  .collage-overlay{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:1.5rem;
+    background:radial-gradient(ellipse at center, rgba(20,10,8,0.18) 0%, rgba(20,10,8,0.6) 100%); pointer-events:none; }
+  .collage-overlay .sub{ font-family:'Permanent Marker',cursive; font-size:1.1rem; color:var(--sun); transform:rotate(-2deg); display:block; margin-bottom:0.4rem; text-shadow:0 2px 8px rgba(0,0,0,0.5); }
+  .collage-overlay h1{ font-size:clamp(2.4rem,9vw,5.2rem); color:#fff; -webkit-text-stroke:3px var(--hotpink-deep); text-shadow:5px 5px 0 var(--orange), 10px 10px 0 var(--turquoise-deep); transform:rotate(-2.5deg); line-height:1.05; }
+  .collage-overlay p.tag{ max-width:44ch; margin:1.1rem auto 0; font-size:1.08rem; color:#fff; font-weight:600; text-shadow:0 2px 10px rgba(0,0,0,0.6); }
+  .floaty{ position:absolute; font-size:2.4rem; filter:drop-shadow(0 6px 10px rgba(0,0,0,0.35)); animation:bob 4s ease-in-out infinite; pointer-events:none; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0) rotate(-6deg); } 50%{ transform:translateY(-14px) rotate(6deg); } }
+  .f1{ top:8%; left:5%; animation-delay:0s; }
+  .f2{ top:10%; right:6%; animation-delay:1s; }
+  .f3{ bottom:10%; left:7%; animation-delay:2s; }
+  .f4{ bottom:8%; right:5%; animation-delay:1.6s; }
+  @media (max-width:600px){ .floaty{ font-size:1.6rem; } }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; margin-top:1.4rem; pointer-events:auto; }
+  .chip{ background:rgba(0,0,0,0.32); border:2px solid var(--sun); color:#fff; padding:0.5rem 1rem; border-radius:999px; font-family:'JetBrains Mono',monospace; font-size:0.76rem; }
+
+  .cta-row{ display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:center; padding:1.6rem 1.5rem; background:var(--ink); }
+  .btn{ font-family:'Lilita One',sans-serif; letter-spacing:0.02em; font-size:0.95rem; padding:0.85rem 1.8rem; border-radius:999px; border:2px solid transparent; cursor:pointer; text-decoration:none; }
+  .btn-solid{ background:var(--hotpink); color:#fff; }
+
+  .recap{ padding:2.6rem 1.5rem 0.4rem; text-align:center; }
+  .recap p{ max-width:56ch; margin:0 auto; color:var(--ink-soft); font-size:1.08rem; }
+
+  section{ padding:2.6rem 0; }
+  .kicker{ font-family:'JetBrains Mono',monospace; text-transform:uppercase; letter-spacing:0.18em; font-size:0.7rem; color:var(--hotpink-deep); display:block; margin-bottom:0.5rem; }
+  .section-head h2{ font-size:1.9rem; }
+  .section-head p{ color:var(--ink-soft); margin-top:0.5rem; max-width:60ch; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.8rem; }
+
+  .hatcard{ background:linear-gradient(135deg,var(--hotpink),var(--hotpink-deep)); color:#fff; border-radius:var(--radius); padding:1.8rem; box-shadow:var(--shadow); transform:rotate(-0.6deg); }
+  .hatcard h3{ font-size:1.4rem; margin-bottom:0.6rem; }
+  .hatcard p{ margin:0 0 0.7rem; opacity:0.96; font-size:1.02rem; }
+  .hatcard .badge{ display:inline-block; font-family:'Permanent Marker',cursive; background:var(--sun); color:var(--ink); padding:0.4rem 1rem; border-radius:999px; transform:rotate(-3deg); font-size:1rem; margin-top:0.4rem; }
+
+  .game-aside{ margin-top:1.2rem; border:3px dashed var(--turquoise-deep); border-radius:var(--radius); padding:1.3rem 1.5rem; background:var(--card); transform:rotate(0.5deg); }
+  .game-aside .marker{ color:var(--turquoise-deep); font-size:1.2rem; display:block; margin-bottom:0.4rem; }
+  .game-aside p{ margin:0; color:var(--ink-soft); font-size:0.96rem; }
+
+  .fame-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:0.7rem; margin-top:1.2rem; }
+  @media (max-width:640px){ .fame-grid{ grid-template-columns:repeat(2,1fr); } }
+  .fame-item{ text-align:center; }
+  .fame-item .thumb{ width:100%; aspect-ratio:1; border-radius:12px; background-size:cover; background-position:center; box-shadow:var(--shadow); cursor:pointer; border:3px solid #fff; padding:0; margin-bottom:0.4rem; transition:transform .15s ease; }
+  .fame-item:nth-child(odd) .thumb{ transform:rotate(-3deg); }
+  .fame-item:nth-child(even) .thumb{ transform:rotate(3deg); }
+  .fame-item .thumb:hover{ transform:scale(1.06) rotate(0deg); }
+  .fame-item .cap{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); }
+
+  .add-song{ display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+  .add-song input{ font-family:'Baloo 2',sans-serif; flex:1; min-width:120px; padding:0.65rem 0.85rem; border-radius:10px; border:1.5px solid var(--line); background:var(--cream); color:var(--ink); }
+  .add-song button{ font-family:'Lilita One',sans-serif; font-size:0.9rem; background:var(--hotpink-deep); color:#fff; border:none; border-radius:10px; padding:0.65rem 1.4rem; cursor:pointer; }
+  .track-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:0.7rem 0; border-bottom:1px solid var(--line); }
+  .track-row .artist{ font-weight:700; } .track-row .title{ color:var(--ink-soft); }
+  .votes{ display:flex; align-items:center; gap:0.4rem; }
+  .vote-btn{ width:1.9rem;height:1.9rem;border-radius:999px; border:1.5px solid var(--line); background:var(--cream); cursor:pointer; }
+  .note{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-soft); margin-top:0.8rem; text-align:center; }
+
+  .photo-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:0.5rem; margin-top:1rem; }
+  .photo-thumb{ display:block; width:100%; aspect-ratio:1; border:none; border-radius:12px; background-size:cover; background-position:center; cursor:pointer; padding:0; box-shadow:var(--shadow); transition:transform .15s ease; }
+  .photo-thumb:hover{ transform:scale(1.05) rotate(-1deg); outline:2px solid var(--hotpink); }
+  .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,0.9); display:flex; align-items:center; justify-content:center; padding:2rem; opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:50; }
+  .lightbox.show{ opacity:1; pointer-events:auto; }
+  .lightbox img{ max-width:100%; max-height:100%; border-radius:10px; box-shadow:0 30px 60px -20px rgba(0,0,0,0.6); }
+
+  footer{ text-align:center; padding:3rem 1.5rem; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--sun); background:var(--ink); }
+  footer .big{ font-family:'Permanent Marker',cursive; color:var(--sun); font-size:1.7rem; display:block; margin-bottom:0.5rem; transform:rotate(-1deg); }
+
+  .toast{ position:fixed; bottom:1.4rem; left:50%; transform:translateX(-50%) translateY(120%); background:var(--ink); color:var(--sun); border-radius:999px;
+    padding:0.7rem 1.2rem; font-family:'JetBrains Mono',monospace; font-size:0.78rem; transition:transform 0.3s ease; z-index:20; }
+  .toast.show{ transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="preview-bar">PREVIEW · FIESTA REMIX &nbsp;·&nbsp; <a href="../compare/">← back to compare</a></div>
+<div class="stripe" aria-hidden="true"></div>
+
+<div class="collage-wrap">
+  <div class="collage-grid" aria-hidden="true">
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-01.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-02.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-03.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-04.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-05.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-06.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-07.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-08.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-09.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-10.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-11.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-12.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-13.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-14.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-15.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-16.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-17.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-18.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-19.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-20.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-21.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-22.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-23.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-24.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-25.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-26.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-27.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-28.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-29.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-30.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-31.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-07.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-16.jpg')"></div></div>
+    <div class="ctile"><div class="cimg" style="background-image:url('../photos/thumb/photo-22.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-10.jpg')"></div><div class="cimg" style="background-image:url('../photos/thumb/photo-29.jpg')"></div></div>
+  </div>
+  <div class="collage-overlay">
+    <span class="floaty f1">🍹</span>
+    <span class="floaty f2">🐆</span>
+    <span class="floaty f3">🌴</span>
+    <span class="floaty f4">✨</span>
+    <span class="sub">Hat Exchange Reopens Aug 1</span>
+    <h1>MEXICO<br>REUNION<br>PARTY</h1>
+    <p class="tag">The tans may have faded, but the memories (and maybe the tequila) live on.</p>
+    <div class="chips">
+      <span class="chip">📅 Sat, Aug 1, 2026</span>
+      <span class="chip">🕑 2:00 PM – ?</span>
+      <span class="chip">📍 1028 Bull Crescent, Kelowna</span>
+      <span class="chip">🍹 Passionfruit Margs · Corona · Red Ferrari Sangria</span>
+    </div>
+  </div>
+</div>
+<div class="cta-row">
+  <a class="btn btn-solid" href="#songs">🎶 Add a Song</a>
+  <a class="btn btn-solid" style="background:var(--turquoise-deep);" href="#photos">📸 See the Photos</a>
+</div>
+
+<div class="recap">
+  <p>We went to Mexico for Solenn's 40th. We came back with a hat that has its own reputation, a leopard-print elevator rescue story, and zero regrets. Theme days weren't optional. They still aren't.</p>
+</div>
+
+<main class="wrap">
+  <section id="hat">
+    <div class="hatcard">
+      <h3>The Hat Exchange Returns</h3>
+      <p>One hat, passed to a new victim every hour. Whoever's wearing it when the buzzer goes is officially the <strong>Shitshow Supervisor</strong> — responsible for crowd energy, questionable decisions, and making sure nobody leaves the pool early.</p>
+      <span class="badge">last seen: leopard bucket hat, Mexico 2026</span>
+    </div>
+  </section>
+
+  <section id="fame">
+    <div class="section-head"><span class="kicker">Hall of Fame</span><h2>Theme Days, Ranked</h2><p>Leopard. French. Muumuu. Fuchsia. Glow. All non-negotiable.</p></div>
+    <div class="fame-grid">
+      <div class="fame-item">
+        <button class="thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Leopard day"></button>
+        <span class="cap">Leopard Day</span>
+      </div>
+      <div class="fame-item">
+        <button class="thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="French day"></button>
+        <span class="cap">French Day</span>
+      </div>
+      <div class="fame-item">
+        <button class="thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Muumuu day"></button>
+        <span class="cap">Muumuu Day</span>
+      </div>
+      <div class="fame-item">
+        <button class="thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Fuchsia day"></button>
+        <span class="cap">Fuchsia Day</span>
+      </div>
+      <div class="fame-item">
+        <button class="thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Glow night"></button>
+        <span class="cap">Glow Night</span>
+      </div>
+    </div>
+    <div class="game-aside">
+      <span class="marker">🛗 Party Game: Stuck in the Elevator</span>
+      <p>Teams get 60 seconds to "escape" a taped-off doorway using only what's in their goodie bag. Ask a leopard-day survivor for tips — they've done this for real.</p>
+    </div>
+  </section>
+
+  <section id="songs">
+    <div class="section-head"><span class="kicker">The Soundtrack</span><h2>Song List & Suggestions</h2><p>151 on deck. Add yours, vote the rest up or down.</p></div>
+    <div class="card">
+      <form class="add-song" onsubmit="return preview(event)">
+        <input type="text" placeholder="Artist" />
+        <input type="text" placeholder="Track" />
+        <button type="submit">Add</button>
+      </form>
+      <div class="track-row"><div><span class="artist">LMFAO</span> — <span class="title">Party Rock Anthem</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">15</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      <div class="track-row"><div><span class="artist">Los Del Rio</span> — <span class="title">Macarena</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">12</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      <div class="track-row"><div><span class="artist">*NSYNC</span> — <span class="title">Bye Bye Bye</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">9</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
+      <p class="note">+148 more once we go live</p>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="section-head"><span class="kicker">The Original Trip</span><h2>Photo Wall</h2><p>March 18–25, 2026 — click any shot to enlarge.</p></div>
+    <div class="photo-grid">
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-01.jpg')" onclick="openLightbox('../photos/full/photo-01.jpg')" aria-label="Trip photo 1"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-02.jpg')" onclick="openLightbox('../photos/full/photo-02.jpg')" aria-label="Trip photo 2"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-03.jpg')" onclick="openLightbox('../photos/full/photo-03.jpg')" aria-label="Trip photo 3"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-04.jpg')" onclick="openLightbox('../photos/full/photo-04.jpg')" aria-label="Trip photo 4"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-05.jpg')" onclick="openLightbox('../photos/full/photo-05.jpg')" aria-label="Trip photo 5"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-06.jpg')" onclick="openLightbox('../photos/full/photo-06.jpg')" aria-label="Trip photo 6"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Trip photo 7"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-08.jpg')" onclick="openLightbox('../photos/full/photo-08.jpg')" aria-label="Trip photo 8"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-09.jpg')" onclick="openLightbox('../photos/full/photo-09.jpg')" aria-label="Trip photo 9"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Trip photo 10"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-11.jpg')" onclick="openLightbox('../photos/full/photo-11.jpg')" aria-label="Trip photo 11"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-12.jpg')" onclick="openLightbox('../photos/full/photo-12.jpg')" aria-label="Trip photo 12"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-13.jpg')" onclick="openLightbox('../photos/full/photo-13.jpg')" aria-label="Trip photo 13"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-14.jpg')" onclick="openLightbox('../photos/full/photo-14.jpg')" aria-label="Trip photo 14"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-15.jpg')" onclick="openLightbox('../photos/full/photo-15.jpg')" aria-label="Trip photo 15"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-16.jpg')" onclick="openLightbox('../photos/full/photo-16.jpg')" aria-label="Trip photo 16"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-17.jpg')" onclick="openLightbox('../photos/full/photo-17.jpg')" aria-label="Trip photo 17"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-18.jpg')" onclick="openLightbox('../photos/full/photo-18.jpg')" aria-label="Trip photo 18"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-19.jpg')" onclick="openLightbox('../photos/full/photo-19.jpg')" aria-label="Trip photo 19"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-20.jpg')" onclick="openLightbox('../photos/full/photo-20.jpg')" aria-label="Trip photo 20"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-21.jpg')" onclick="openLightbox('../photos/full/photo-21.jpg')" aria-label="Trip photo 21"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Trip photo 22"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-23.jpg')" onclick="openLightbox('../photos/full/photo-23.jpg')" aria-label="Trip photo 23"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-24.jpg')" onclick="openLightbox('../photos/full/photo-24.jpg')" aria-label="Trip photo 24"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-25.jpg')" onclick="openLightbox('../photos/full/photo-25.jpg')" aria-label="Trip photo 25"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-26.jpg')" onclick="openLightbox('../photos/full/photo-26.jpg')" aria-label="Trip photo 26"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-27.jpg')" onclick="openLightbox('../photos/full/photo-27.jpg')" aria-label="Trip photo 27"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-28.jpg')" onclick="openLightbox('../photos/full/photo-28.jpg')" aria-label="Trip photo 28"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="Trip photo 29"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Trip photo 30"></button>
+      <button class="photo-thumb" style="background-image:url('../photos/thumb/photo-31.jpg')" onclick="openLightbox('../photos/full/photo-31.jpg')" aria-label="Trip photo 31"></button>
+    </div>
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <img id="lightboxImg" src="" alt="Mexico trip photo, March 2026" />
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="big">The hat is coming out of retirement.</span>
+  Mexico Reunion Party · August 1, 2026 · Kelowna, BC
+</footer>
+
+<div class="toast" id="toast">Preview only — goes live once we lock the direction 👀</div>
+<script>
+function openLightbox(src){ const img=document.getElementById('lightboxImg'); img.src=src; document.getElementById('lightbox').classList.add('show'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
+function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); return false; }
+</script>
+</body>
+</html>
