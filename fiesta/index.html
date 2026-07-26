@@ -82,11 +82,6 @@
   .section-head p{ color:var(--ink-soft); margin-top:0.5rem; max-width:60ch; }
   .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.8rem; }
 
-  .hatcard{ background:linear-gradient(135deg,var(--hotpink),var(--hotpink-deep)); color:#fff; border-radius:var(--radius); padding:1.8rem; box-shadow:var(--shadow); transform:rotate(-0.6deg); }
-  .hatcard h3{ font-size:1.4rem; margin-bottom:0.6rem; }
-  .hatcard p{ margin:0 0 0.7rem; opacity:0.96; font-size:1.02rem; }
-  .hatcard .badge{ display:inline-block; font-family:'Permanent Marker',cursive; background:var(--sun); color:var(--ink); padding:0.4rem 1rem; border-radius:999px; transform:rotate(-3deg); font-size:1rem; margin-top:0.4rem; }
-
   .game-aside{ margin-top:1.2rem; border:3px dashed var(--turquoise-deep); border-radius:var(--radius); padding:1.3rem 1.5rem; background:var(--card); transform:rotate(0.5deg); }
   .game-aside .marker{ color:var(--turquoise-deep); font-size:1.2rem; display:block; margin-bottom:0.4rem; }
   .game-aside p{ margin:0; color:var(--ink-soft); font-size:0.96rem; }
@@ -98,15 +93,17 @@
   .fame-item:nth-child(odd) .thumb{ transform:rotate(-3deg); }
   .fame-item:nth-child(even) .thumb{ transform:rotate(3deg); }
   .fame-item .thumb:hover{ transform:scale(1.06) rotate(0deg); }
-  .fame-item .cap{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); }
+  .fame-item .cap{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); display:block; margin-bottom:0.35rem; }
 
   .add-song{ display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:1.2rem; }
   .add-song input{ font-family:'Baloo 2',sans-serif; flex:1; min-width:120px; padding:0.65rem 0.85rem; border-radius:10px; border:1.5px solid var(--line); background:var(--cream); color:var(--ink); }
   .add-song button{ font-family:'Lilita One',sans-serif; font-size:0.9rem; background:var(--hotpink-deep); color:#fff; border:none; border-radius:10px; padding:0.65rem 1.4rem; cursor:pointer; }
-  .track-row{ display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:0.7rem 0; border-bottom:1px solid var(--line); }
+  .track-list{ max-height:22rem; overflow-y:auto; border-top:1px solid var(--line); margin-top:0.4rem; }
+  .track-row{ padding:0.65rem 0.2rem; border-bottom:1px solid var(--line); }
   .track-row .artist{ font-weight:700; } .track-row .title{ color:var(--ink-soft); }
-  .votes{ display:flex; align-items:center; gap:0.4rem; }
-  .vote-btn{ width:1.9rem;height:1.9rem;border-radius:999px; border:1.5px solid var(--line); background:var(--cream); cursor:pointer; }
+  .rank-vote{ display:flex; align-items:center; justify-content:center; gap:0.3rem; }
+  .vote-btn{ width:1.6rem; height:1.6rem; border-radius:999px; border:1.5px solid var(--line); background:var(--cream); color:var(--ink); cursor:pointer; font-size:0.72rem; line-height:1; }
+  .vote-btn:hover{ background:var(--hotpink); border-color:var(--hotpink); color:#fff; }
   .note{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-soft); margin-top:0.8rem; text-align:center; }
 
   .photo-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:0.5rem; margin-top:1rem; }
@@ -169,36 +166,33 @@
 </div>
 
 <main class="wrap">
-  <section id="hat">
-    <div class="hatcard">
-      <h3>The Hat Exchange Returns</h3>
-      <p>One hat, passed to a new victim every hour. Whoever's wearing it when the buzzer goes is officially the <strong>Shitshow Supervisor</strong> — responsible for crowd energy, questionable decisions, and making sure nobody leaves the pool early.</p>
-      <span class="badge">last seen: leopard bucket hat, Mexico 2026</span>
-    </div>
-  </section>
-
   <section id="fame">
-    <div class="section-head"><span class="kicker">Hall of Fame</span><h2>Theme Days, Ranked</h2><p>Leopard. French. Muumuu. Fuchsia. Glow. All non-negotiable.</p></div>
-    <div class="fame-grid">
-      <div class="fame-item">
+    <div class="section-head"><span class="kicker">Hall of Fame</span><h2>Theme Days, Ranked</h2><p>Leopard. French. Muumuu. Fuchsia. Glitter. Vote for the one that needs to come back.</p></div>
+    <div class="fame-grid" id="fameGrid">
+      <div class="fame-item" data-votes="14">
         <button class="thumb" style="background-image:url('../photos/thumb/photo-07.jpg')" onclick="openLightbox('../photos/full/photo-07.jpg')" aria-label="Leopard day"></button>
         <span class="cap">Leopard Day</span>
+        <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Leopard Day">▲</button><span class="mono vcount">14</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Leopard Day">▼</button></div>
       </div>
-      <div class="fame-item">
+      <div class="fame-item" data-votes="9">
         <button class="thumb" style="background-image:url('../photos/thumb/photo-29.jpg')" onclick="openLightbox('../photos/full/photo-29.jpg')" aria-label="French day"></button>
         <span class="cap">French Day</span>
+        <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote French Day">▲</button><span class="mono vcount">9</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote French Day">▼</button></div>
       </div>
-      <div class="fame-item">
+      <div class="fame-item" data-votes="12">
         <button class="thumb" style="background-image:url('../photos/thumb/photo-22.jpg')" onclick="openLightbox('../photos/full/photo-22.jpg')" aria-label="Muumuu day"></button>
         <span class="cap">Muumuu Day</span>
+        <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Muumuu Day">▲</button><span class="mono vcount">12</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Muumuu Day">▼</button></div>
       </div>
-      <div class="fame-item">
+      <div class="fame-item" data-votes="8">
         <button class="thumb" style="background-image:url('../photos/thumb/photo-10.jpg')" onclick="openLightbox('../photos/full/photo-10.jpg')" aria-label="Fuchsia day"></button>
         <span class="cap">Fuchsia Day</span>
+        <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Fuchsia Day">▲</button><span class="mono vcount">8</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Fuchsia Day">▼</button></div>
       </div>
-      <div class="fame-item">
-        <button class="thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Glow night"></button>
-        <span class="cap">Glow Night</span>
+      <div class="fame-item" data-votes="11">
+        <button class="thumb" style="background-image:url('../photos/thumb/photo-30.jpg')" onclick="openLightbox('../photos/full/photo-30.jpg')" aria-label="Glitter night"></button>
+        <span class="cap">Glitter Night</span>
+        <div class="rank-vote"><button class="vote-btn" onclick="rankVote(this,1)" aria-label="Upvote Glitter Night">▲</button><span class="mono vcount">11</span><button class="vote-btn" onclick="rankVote(this,-1)" aria-label="Downvote Glitter Night">▼</button></div>
       </div>
     </div>
     <div class="game-aside">
@@ -208,17 +202,66 @@
   </section>
 
   <section id="songs">
-    <div class="section-head"><span class="kicker">The Soundtrack</span><h2>Song List & Suggestions</h2><p>151 on deck. Add yours, vote the rest up or down.</p></div>
+    <div class="section-head"><span class="kicker">The Soundtrack</span><h2>Song List & Suggestions</h2><p>151 on deck — scroll the list, add yours at the top.</p></div>
     <div class="card">
       <form class="add-song" onsubmit="return preview(event)">
         <input type="text" placeholder="Artist" />
         <input type="text" placeholder="Track" />
         <button type="submit">Add</button>
       </form>
-      <div class="track-row"><div><span class="artist">LMFAO</span> — <span class="title">Party Rock Anthem</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">15</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
-      <div class="track-row"><div><span class="artist">Los Del Rio</span> — <span class="title">Macarena</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">12</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
-      <div class="track-row"><div><span class="artist">*NSYNC</span> — <span class="title">Bye Bye Bye</span></div><div class="votes"><button class="vote-btn" onclick="preview(event)">▲</button><span class="mono">9</span><button class="vote-btn" onclick="preview(event)">▼</button></div></div>
-      <p class="note">+148 more once we go live</p>
+      <div class="track-list">
+        <div class="track-row"><span class="artist">LMFAO</span> — <span class="title">Party Rock Anthem</span></div>
+        <div class="track-row"><span class="artist">Los Del Rio</span> — <span class="title">Macarena</span></div>
+        <div class="track-row"><span class="artist">*NSYNC</span> — <span class="title">Bye Bye Bye</span></div>
+        <div class="track-row"><span class="artist">ABBA</span> — <span class="title">Dancing Queen</span></div>
+        <div class="track-row"><span class="artist">ABBA</span> — <span class="title">Mamma Mia</span></div>
+        <div class="track-row"><span class="artist">Whitney Houston</span> — <span class="title">I Wanna Dance with Somebody</span></div>
+        <div class="track-row"><span class="artist">Cyndi Lauper</span> — <span class="title">Girls Just Want to Have Fun</span></div>
+        <div class="track-row"><span class="artist">Gloria Estefan</span> — <span class="title">Conga</span></div>
+        <div class="track-row"><span class="artist">Shakira</span> — <span class="title">Hips Don't Lie</span></div>
+        <div class="track-row"><span class="artist">Luis Fonsi ft. Daddy Yankee</span> — <span class="title">Despacito</span></div>
+        <div class="track-row"><span class="artist">Marc Anthony</span> — <span class="title">Vivir Mi Vida</span></div>
+        <div class="track-row"><span class="artist">Enrique Iglesias</span> — <span class="title">Bailando</span></div>
+        <div class="track-row"><span class="artist">Ricky Martin</span> — <span class="title">Livin' la Vida Loca</span></div>
+        <div class="track-row"><span class="artist">Katy Perry</span> — <span class="title">California Gurls</span></div>
+        <div class="track-row"><span class="artist">Kesha</span> — <span class="title">TiK ToK</span></div>
+        <div class="track-row"><span class="artist">Beyoncé</span> — <span class="title">Crazy in Love</span></div>
+        <div class="track-row"><span class="artist">Rihanna</span> — <span class="title">Don't Stop the Music</span></div>
+        <div class="track-row"><span class="artist">Black Eyed Peas</span> — <span class="title">I Gotta Feeling</span></div>
+        <div class="track-row"><span class="artist">Journey</span> — <span class="title">Don't Stop Believin'</span></div>
+        <div class="track-row"><span class="artist">Bon Jovi</span> — <span class="title">Livin' on a Prayer</span></div>
+        <div class="track-row"><span class="artist">Fleetwood Mac</span> — <span class="title">Dreams</span></div>
+        <div class="track-row"><span class="artist">Earth, Wind & Fire</span> — <span class="title">September</span></div>
+        <div class="track-row"><span class="artist">Sister Sledge</span> — <span class="title">We Are Family</span></div>
+        <div class="track-row"><span class="artist">Diana Ross</span> — <span class="title">I'm Coming Out</span></div>
+        <div class="track-row"><span class="artist">Donna Summer</span> — <span class="title">Hot Stuff</span></div>
+        <div class="track-row"><span class="artist">Chic</span> — <span class="title">Le Freak</span></div>
+        <div class="track-row"><span class="artist">Michael Jackson</span> — <span class="title">Don't Stop 'Til You Get Enough</span></div>
+        <div class="track-row"><span class="artist">Madonna</span> — <span class="title">Vogue</span></div>
+        <div class="track-row"><span class="artist">Spice Girls</span> — <span class="title">Wannabe</span></div>
+        <div class="track-row"><span class="artist">Britney Spears</span> — <span class="title">Toxic</span></div>
+        <div class="track-row"><span class="artist">Christina Aguilera</span> — <span class="title">Dirrty</span></div>
+        <div class="track-row"><span class="artist">Jennifer Lopez</span> — <span class="title">On the Floor</span></div>
+        <div class="track-row"><span class="artist">Pitbull</span> — <span class="title">Give Me Everything</span></div>
+        <div class="track-row"><span class="artist">Daddy Yankee</span> — <span class="title">Gasolina</span></div>
+        <div class="track-row"><span class="artist">CNCO</span> — <span class="title">Reggaetón Lento</span></div>
+        <div class="track-row"><span class="artist">Bad Bunny</span> — <span class="title">Tití Me Preguntó</span></div>
+        <div class="track-row"><span class="artist">Sean Paul</span> — <span class="title">Get Busy</span></div>
+        <div class="track-row"><span class="artist">Kevin Lyttle</span> — <span class="title">Turn Me On</span></div>
+        <div class="track-row"><span class="artist">OutKast</span> — <span class="title">Hey Ya!</span></div>
+        <div class="track-row"><span class="artist">Usher</span> — <span class="title">Yeah!</span></div>
+        <div class="track-row"><span class="artist">Flo Rida</span> — <span class="title">Low</span></div>
+        <div class="track-row"><span class="artist">Dua Lipa</span> — <span class="title">Levitating</span></div>
+        <div class="track-row"><span class="artist">Lizzo</span> — <span class="title">About Damn Time</span></div>
+        <div class="track-row"><span class="artist">Harry Styles</span> — <span class="title">As It Was</span></div>
+        <div class="track-row"><span class="artist">Miley Cyrus</span> — <span class="title">Flowers</span></div>
+        <div class="track-row"><span class="artist">Kool & The Gang</span> — <span class="title">Celebration</span></div>
+        <div class="track-row"><span class="artist">Village People</span> — <span class="title">Y.M.C.A.</span></div>
+        <div class="track-row"><span class="artist">Cardi B</span> — <span class="title">I Like It</span></div>
+        <div class="track-row"><span class="artist">Marc Anthony</span> — <span class="title">Valió la Pena</span></div>
+        <div class="track-row"><span class="artist">Selena</span> — <span class="title">Bidi Bidi Bom Bom</span></div>
+      </div>
+      <p class="note">+101 more once we go live</p>
     </div>
   </section>
 
@@ -273,6 +316,16 @@
 function openLightbox(src){ const img=document.getElementById('lightboxImg'); img.src=src; document.getElementById('lightbox').classList.add('show'); }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('show'); }
 function preview(e){ e.preventDefault(); const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); return false; }
+function rankVote(btn, delta){
+  const item = btn.closest('.fame-item');
+  const v = Math.max(0, parseInt(item.dataset.votes, 10) + delta);
+  item.dataset.votes = v;
+  item.querySelector('.vcount').textContent = v;
+  const grid = document.getElementById('fameGrid');
+  Array.from(grid.children)
+    .sort((a, b) => b.dataset.votes - a.dataset.votes)
+    .forEach(el => grid.appendChild(el));
+}
 </script>
 </body>
 </html>
